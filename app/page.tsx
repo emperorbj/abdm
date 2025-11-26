@@ -140,7 +140,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-6 sm:space-y-8 order-2 lg:order-1"
+            className="space-y-6 mt-20 md:mt-0 sm:space-y-8 order-2 lg:order-1"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-100 rounded-full text-sm font-medium text-emerald-700">
               <Sparkles className="w-4 h-4" />
@@ -203,10 +203,10 @@ const HeroSection = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="relative h-[200px] sm:h-[200px] flex items-center justify-center order-1 lg:order-2"
+            className="relative mt-10 md:mt-0 h-[200px] sm:h-[200px] flex items-center justify-center order-1 lg:order-2"
           >
             {/* Animated Chat Bubbles - Left side */}
-            <div className="absolute left-0 top-0 bottom-0 w-full lg:w-auto flex items-center justify-center lg:justify-start">
+            <div className="absolute left-0 top-0 bottom-0 w-full lg:w-auto hidden md:flex items-center justify-center lg:justify-start">
               <div className="relative h-[300px] sm:h-[300px] w-full max-w-[280px] lg:max-w-none lg:w-[280px] overflow-hidden">
                 <motion.div
                   animate={{
@@ -286,13 +286,13 @@ const HeroSection = () => {
               className="relative z-10 mx-auto"
             >
               {/* Phone frame */}
-              <div className="w-[260px] sm:w-[280px] h-[450px] sm:h-[500px] bg-gradient-to-br from-gray-800 to-gray-900 rounded-[2.5rem] sm:rounded-[3rem] p-2 sm:p-3 shadow-2xl">
+              <div className=" w-[200px] md:w-[260px] sm:w-[280px] h-[300px] lg:h-[500px] bg-gradient-to-br from-gray-800 to-gray-900 rounded-[2.5rem] sm:rounded-[3rem] p-1.5 sm:p-3 shadow-2xl">
                 <div className="w-full h-full bg-white rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden relative">
                   {/* Notch */}
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 sm:w-40 h-6 sm:h-7 bg-gray-900 rounded-b-3xl z-10" />
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 W-28 md:w-32 sm:w-40 h-4 sm:h-7 bg-gray-900 rounded-b-3xl z-10" />
                   
                   {/* Screen content */}
-                  <div className="h-full bg-gradient-to-br from-emerald-50 to-cyan-50 p-4 sm:p-6 pt-10 sm:pt-12 overflow-hidden">
+                  <div className="h-full bg-gradient-to-br from-emerald-50 to-cyan-50 p-2 sm:p-6 pt-10 sm:pt-12 overflow-hidden">
                     {/* Chat header */}
                     <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 sm:p-4 mb-4 shadow-sm">
                       <div className="flex items-center gap-3">
@@ -333,8 +333,8 @@ const HeroSection = () => {
                           // }}
                         />
                         <div className="w-7 h-7 rounded-full bg-emerald-200 flex-shrink-0" style={{ display: 'none' }} />
-                        <div className="bg-white rounded-2xl rounded-tl-sm px-3 sm:px-4 py-2 sm:py-3 shadow-sm max-w-[160px] sm:max-w-[180px]">
-                          <p className="text-xs sm:text-sm">Are ready to go forward with the IVF treatment?</p>
+                        <div className="bg-white rounded-2xl rounded-tl-sm px-2 sm:px-4 py-1 sm:py-3 shadow-sm max-w-[160px] sm:max-w-[180px]">
+                          <p className="text-[10px] sm:text-sm">Are ready to go forward with the IVF treatment?</p>
                         </div>
                       </div>
 
@@ -349,8 +349,8 @@ const HeroSection = () => {
                           // }}
                         />
                         <div className="w-7 h-7 rounded-full bg-sky-200 flex-shrink-0" style={{ display: 'none' }} />
-                        <div className="bg-white rounded-2xl rounded-tl-sm px-3 sm:px-4 py-2 sm:py-3 shadow-sm max-w-[160px] sm:max-w-[180px]">
-                          <p className="text-xs sm:text-sm">Yeah! we can go ahead with this</p>
+                        <div className="bg-white rounded-2xl rounded-tl-sm px-2 sm:px-4 py-1 sm:py-3 shadow-sm max-w-[160px] sm:max-w-[180px]">
+                          <p className="text-[10px] sm:text-sm">Yeah! we can go ahead with this</p>
                         </div>
                       </div>
 
@@ -371,8 +371,8 @@ const HeroSection = () => {
                           // }}
                         />
                         <div className="w-7 h-7 rounded-full bg-gradient-to-br from-emerald-400 to-cyan-400 flex-shrink-0" style={{ display: 'none' }} />
-                        <div className="bg-white rounded-2xl rounded-tl-sm px-3 sm:px-4 py-2 sm:py-3 shadow-sm max-w-[160px] sm:max-w-[180px]">
-                          <p className="text-xs sm:text-sm">Ok great! check in by 10:00 AM. So we can begin</p>
+                        <div className="bg-white rounded-2xl rounded-tl-sm px-2 sm:px-4 py-1 sm:py-3 shadow-sm max-w-[160px] sm:max-w-[180px]">
+                          <p className="text-[10px] sm:text-sm">Ok great! check in by 10:00 AM. So we can begin</p>
                           {/* <div className="mt-2 p-2 bg-emerald-50 rounded-lg"> */}
                             {/* <div className="text-xs font-semibold">Dec 15, 2024</div>
                             <div className="text-xs text-gray-600">10:00 AM</div> */}
