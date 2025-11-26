@@ -1,407 +1,815 @@
+
 'use client'
 import React, { useRef, useEffect, useState } from 'react';
-import { motion, useScroll, useTransform, useReducedMotion, AnimatePresence } from 'framer-motion';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Float, PerspectiveCamera } from '@react-three/drei';
-import * as THREE from 'three';
-import FeatureCards3D from '@/components/ui/landing-page/FeatureCards3D';
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import { ArrowRight, MessageSquare, BarChart3, Calendar, Heart, 
+  Baby, Sparkles, CheckCircle2, Play, User, Stethoscope, 
+  
+  Menu, X, TrendingUp, Users, Zap, Target, 
+  User2Icon,
+  MessageCircle} from 'lucide-react';
+  // import {Image} from 'next/image'
 
-// Animated Navbar Component
-function AnimatedNavbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const navItems = ['About ABDM', 'Services', 'Compliance', 'Resources', 'Contact'];
+// Transparent Navbar
+const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: -20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
-    }
-  };
-
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/50' : 'bg-transparent'
-      }`}
-    >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm' : 'bg-transparent'
+    }`}>
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex items-center space-x-3"
+            className="text-xl sm:text-2xl font-bold text-gray-900"
           >
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-violet-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">A</span>
-            </div>
-            <span className="text-white font-semibold text-lg">ABDM Solutions</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-cyan-500">
+              Humane AI
+            </span>
           </motion.div>
 
-          {/* Nav Items */}
-          <motion.ul
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="hidden md:flex items-center space-x-8"
-          >
-            {navItems.map((item, index) => (
-              <motion.li key={index} variants={itemVariants}>
-                <a
-                  href={`#${item.toLowerCase().replace(' ', '-')}`}
-                  className="text-slate-300 hover:text-white transition-colors duration-200 text-sm font-medium"
-                >
-                  {item}
-                </a>
-              </motion.li>
-            ))}
-          </motion.ul>
-
-          {/* CTA Button */}
-          <motion.button
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium text-sm transition-colors"
-          >
-            Get Started
-          </motion.button>
-        </div>
-      </div>
-    </motion.nav>
-  );
-}
-
-// 3D Network Globe Component
-function IndiaNetworkGlobe() {
-  const meshRef = useRef();
-  const particlesRef = useRef();
-
-  const nodes = React.useMemo(() => {
-    const positions = [];
-    const colors = [];
-    const nodeCount = 150;
-    
-    for (let i = 0; i < nodeCount; i++) {
-      const theta = Math.random() * Math.PI * 2;
-      const phi = Math.random() * Math.PI;
-      const radius = 2 + Math.random() * 0.5;
-      
-      positions.push(
-        radius * Math.sin(phi) * Math.cos(theta),
-        radius * Math.sin(phi) * Math.sin(theta),
-        radius * Math.cos(phi)
-      );
-      
-      const t = Math.random();
-      colors.push(
-        0.15 + t * 0.34,
-        0.39 + t * 0.23,
-        0.92 + t * 0.01
-      );
-    }
-    
-    return { positions: new Float32Array(positions), colors: new Float32Array(colors) };
-  }, []);
-
-  useFrame((state) => {
-    if (!meshRef.current || !particlesRef.current) return;
-    
-    const time = state.clock.getElapsedTime();
-    meshRef.current.rotation.y = time * 0.05;
-    meshRef.current.rotation.x = Math.sin(time * 0.3) * 0.05;
-    
-    const positions = particlesRef.current.geometry.attributes.position.array;
-    for (let i = 0; i < positions.length; i += 3) {
-      const pulse = Math.sin(time * 2 + i * 0.1) * 0.02;
-      positions[i] += pulse;
-    }
-    particlesRef.current.geometry.attributes.position.needsUpdate = true;
-  });
-
-  return (
-    <group ref={meshRef}>
-      <lineSegments>
-        <edgesGeometry args={[new THREE.IcosahedronGeometry(2, 1)]} />
-        <lineBasicMaterial color="#2563EB" transparent opacity={0.3} />
-      </lineSegments>
-      
-      <points ref={particlesRef}>
-        <bufferGeometry>
-          <bufferAttribute
-            attach="attributes-position"
-            count={nodes.positions.length / 3}
-            array={nodes.positions}
-            itemSize={3}
-          />
-          <bufferAttribute
-            attach="attributes-color"
-            count={nodes.colors.length / 3}
-            array={nodes.colors}
-            itemSize={3}
-          />
-        </bufferGeometry>
-        <pointsMaterial
-          size={0.08}
-          vertexColors
-          transparent
-          opacity={0.8}
-          sizeAttenuation
-          blending={THREE.AdditiveBlending}
-        />
-      </points>
-      
-      <mesh>
-        <sphereGeometry args={[2.2, 32, 32]} />
-        <meshBasicMaterial
-          color="#7C3AED"
-          transparent
-          opacity={0.05}
-          side={THREE.BackSide}
-        />
-      </mesh>
-    </group>
-  );
-}
-
-// 3D Icons for Feature Cards
-
-
-// Hero Section Component
-function HeroSection() {
-  const containerRef = useRef(null);
-  const shouldReduceMotion = useReducedMotion();
-  const [webGLSupported, setWebGLSupported] = useState(true);
-  const [titleVisible, setTitleVisible] = useState(true);
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"]
-  });
-  
-  const textOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
-  const textY = useTransform(scrollYProgress, [0, 0.3], [0, -20]);
-  const canvasScale = useTransform(scrollYProgress, [0, 0.1, 0.6], [1, 0.95, 0.7]);
-  const canvasOpacity = useTransform(scrollYProgress, [0.5, 0.8], [1, 0]);
-
-  useEffect(() => {
-    try {
-      const canvas = document.createElement('canvas');
-      const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-      if (!gl) setWebGLSupported(false);
-    } catch (e) {
-      setWebGLSupported(false);
-    }
-
-    // Animate title text
-    const interval = setInterval(() => {
-      setTitleVisible(prev => !prev);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const title = "Ayushman Bharat Digital Mission";
-  
-  const letterVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: (i) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.03,
-        duration: 0.5,
-        ease: [0.22, 1, 0.36, 1]
-      }
-    }),
-    exit: (i) => ({
-      opacity: 0,
-      y: -50,
-      transition: {
-        delay: i * 0.02,
-        duration: 0.4,
-        ease: [0.22, 1, 0.36, 1]
-      }
-    })
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: 0.5 }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
-    }
-  };
-
-  return (
-    <section
-      ref={containerRef}
-      className="relative min-h-screen bg-slate-950 overflow-hidden"
-    >
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-blue-950/50 to-violet-950/30" />
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSA2MCAwIEwgMCAwIDAgNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-40" />
-
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 min-h-screen">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-screen py-20">
-          
-          <motion.div
-            className="space-y-8 lg:pr-8"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            style={{ opacity: textOpacity, y: textY }}
-          >
-            <motion.div variants={itemVariants}>
-              <span className="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-medium bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 backdrop-blur-sm">
-                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 mr-2 animate-pulse" />
-                India's Digital Health Infrastructure
-              </span>
-            </motion.div>
-
-            <div className="min-h-[180px]">
-              <AnimatePresence mode="wait">
-                {titleVisible && (
-                  <motion.h1
-                    key="title"
-                    className="text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-50 leading-tight tracking-tight"
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit"
-                  >
-                    {title.split('').map((char, i) => (
-                      <motion.span
-                        key={i}
-                        custom={i}
-                        variants={letterVariants}
-                        className={char === ' ' ? 'inline-block w-4' : 'inline-block'}
-                      >
-                        {char === ' ' ? '\u00A0' : char}
-                      </motion.span>
-                    ))}
-                  </motion.h1>
-                )}
-              </AnimatePresence>
-            </div>
-
-            <motion.p
-              variants={itemVariants}
-              className="text-xl sm:text-2xl text-slate-300 leading-relaxed font-light"
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center gap-8">
+            <a href="#features" className="text-gray-700 hover:text-emerald-600 transition-colors">Features</a>
+            <a href="#specialties" className="text-gray-700 hover:text-emerald-600 transition-colors">Specialties</a>
+            <a href="#about" className="text-gray-700 hover:text-emerald-600 transition-colors">About</a>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-6 py-2 border  border-emerald-500 text-emerald-400 rounded-lg font-semibold"
             >
-              Interoperable. Secure. Patient-centric. We help hospitals & clinics become ABDM-compliant — from gap analysis to certification.
-            </motion.p>
+              Get Started
+            </motion.button>
+          </div>
 
-            <motion.ul className="space-y-3" variants={containerVariants}>
-              {[
-                'ABHA identity & registries',
-                'Interoperable data exchange (HIE)',
-                'M1 → M3 compliance & staff onboarding'
-              ].map((item, i) => (
-                <motion.li
-                  key={i}
-                  variants={itemVariants}
-                  className="flex items-start text-slate-400"
-                >
-                  <svg className="w-6 h-6 text-violet-400 mr-3 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <span className="text-lg">{item}</span>
-                </motion.li>
-              ))}
-            </motion.ul>
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden p-2 text-gray-700"
+          >
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
 
-            <motion.div variants={containerVariants} className="flex flex-col sm:flex-row gap-4 pt-4">
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="md:hidden py-4 bg-white/95 backdrop-blur-md rounded-b-2xl shadow-lg"
+          >
+            <div className="flex flex-col gap-4">
+              <a href="#features" className="px-4 py-2 text-gray-700 hover:bg-emerald-50 rounded-lg transition-colors">Features</a>
+              <a href="#specialties" className="px-4 py-2 text-gray-700 hover:bg-emerald-50 rounded-lg transition-colors">Specialties</a>
+              <a href="#about" className="px-4 py-2 text-gray-700 hover:bg-emerald-50 rounded-lg transition-colors">About</a>
+              <button className="mx-4 px-6 py-2 border-emerald-500 text-emerald-400 rounded-lg font-semibold">
+                Get Started
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </div>
+    </nav>
+  );
+};
+
+// Hero Section with Animated Phone Mockup and Chat Bubbles
+const HeroSection = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth - 0.5) * 20,
+        y: (e.clientY / window.innerHeight - 0.5) * 20
+      });
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  // Chat messages data
+  const chatMessages = [
+    { type: 'doctor', text: 'Good morning! How are you feeling today?', time: '9:30 AM' },
+    { type: 'user', text: 'Much better, thank you! The medication is working well.', time: '9:32 AM' },
+    { type: 'doctor', text: "That's great to hear! Remember to take it after meals.", time: '9:33 AM' },
+    { type: 'user', text: 'Will do. When is my next appointment?', time: '9:35 AM' },
+    { type: 'doctor', text: 'Your next checkup is scheduled for December 15th at 10:00 AM.', time: '9:36 AM' },
+    { type: 'user', text: 'Perfect, I have that marked. Thank you, doctor!', time: '9:37 AM' },
+    { type: 'doctor', text: 'You\'re welcome! Feel free to reach out if you have any questions.', time: '9:38 AM' },
+  ];
+
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-emerald-50 via-white to-cyan-50">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.div
+          className="absolute top-20 left-10 w-72 h-72 bg-emerald-200 rounded-full mix-blend-multiply filter blur-xl opacity-30"
+          animate={{
+            x: mousePosition.x * 2,
+            y: mousePosition.y * 2,
+          }}
+          transition={{ type: "spring", stiffness: 50 }}
+        />
+        <motion.div
+          className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-200 rounded-full mix-blend-multiply filter blur-xl opacity-30"
+          animate={{
+            x: mousePosition.x * -1.5,
+            y: mousePosition.y * -1.5,
+          }}
+          transition={{ type: "spring", stiffness: 50 }}
+        />
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-20 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          {/* Left Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="space-y-6 sm:space-y-8 order-2 lg:order-1"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-100 rounded-full text-sm font-medium text-emerald-700">
+              <Sparkles className="w-4 h-4" />
+              Empowering Healthcare with AI
+            </div>
+            
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight">
+              AI powered patient journeys for{' '}
+              <span className="text-transparent bg-clip-text bg-emerald-400 ">
+                ambitious Indian doctors
+              </span>
+            </h1>
+            
+            <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
+              We help doctors in India earn more, retain patients better, and stand out from competitors using a simple AI layer on top of WhatsApp and a doctor dashboard.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <motion.button
-                variants={itemVariants}
-                whileHover={{ scale: 1.04 }}
-                whileTap={{ scale: 0.98 }}
-                className="group relative px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/50"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-6 sm:px-8 py-3 sm:py-4 border border-emerald-400 text-emerald-500  rounded-xl font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-shadow"
               >
-                <span className="relative z-10 flex items-center justify-center">
-                  Begin Your ABDM Journey
-                  <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </span>
+                Talk to the Founders
+                <ArrowRight className="w-5 h-5" />
               </motion.button>
-            </motion.div>
+              
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-6 sm:px-8 py-3 sm:py-4 bg-white border-2 border-gray-200 text-gray-700 rounded-xl font-semibold flex items-center justify-center gap-2 hover:border-emerald-300 transition-colors"
+              >
+                <Play className="w-5 h-5" />
+                View Demo
+              </motion.button>
+            </div>
+
+            {/* Key metrics */}
+            <div className="grid grid-cols-3 gap-4 sm:gap-6 pt-6 sm:pt-8">
+              {[
+                { value: '3x', label: 'More Patients' },
+                { value: '50%', label: 'Time Saved' },
+                { value: '95%', label: 'Satisfaction' }
+              ].map((stat, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.8 + i * 0.1 }}
+                >
+                  <div className="text-2xl sm:text-3xl font-bold text-gray-900">{stat.value}</div>
+                  <div className="text-xs sm:text-sm text-gray-600">{stat.label}</div>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
 
+          {/* Right - Animated Phone Mockup with Chat Bubbles */}
           <motion.div
-            className="relative h-[600px] lg:h-[700px]"
-            style={{ scale: canvasScale, opacity: canvasOpacity }}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="relative h-[500px] sm:h-[600px] flex items-center justify-center order-1 lg:order-2"
           >
-            {webGLSupported && !shouldReduceMotion && (
-              <Canvas
-                dpr={[1, 1.5]}
-                camera={{ position: [0, 0, 8], fov: 45 }}
-                className="pointer-events-none"
+            {/* Animated Chat Bubbles - Left side */}
+            <div className="absolute left-0 top-0 bottom-0 w-full lg:w-auto flex items-center justify-center lg:justify-start">
+              <div className="relative h-[450px] sm:h-[550px] w-full max-w-[280px] lg:max-w-none lg:w-[280px] overflow-hidden">
+                <motion.div
+                  animate={{
+                    y: [0, -100 * chatMessages.length]
+                  }}
+                  transition={{
+                    duration: chatMessages.length * 4,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                  className="space-y-6"
+                >
+                  {[...chatMessages, ...chatMessages].map((msg, idx) => (
+                    <div
+                      key={idx}
+                      className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}
+                    >
+                      <div
+                        className={`max-w-[220px] px-4 py-3 rounded-2xl backdrop-blur-md ${
+                          msg.type === 'user'
+                            ? 'bg-cyan-500/10 border border-cyan-400 ml-auto'
+                            : 'bg-gray-500/10 border border-gray-400'
+                        }`}
+                      >
+                        <div className="flex items-center gap-2 mb-1">
+                          {msg.type === 'doctor' ? (
+                            <img 
+                              src="/doc.avif" 
+                              alt="Doctor" 
+                              className="w-4 h-4 rounded-full object-cover"
+                              // onError={(e) => {
+                              //   e.currentTarget.style.display = 'none';
+                              //   e.currentTarget.nextElementSibling.style.display = 'flex';
+                              // }}
+                            />
+                          ) : (
+                            <img 
+                              src="/pat.avif" 
+                              alt="Patient" 
+                              className="w-4 h-4 rounded-full object-cover"
+                              // onError={(e) => {
+                              //   e.currentTarget.style.display = 'none';
+                              //   e.currentTarget.nextElementSibling.style.display = 'flex';
+                              // }}
+                            />
+                          )}
+                          <div className={`w-4 h-4 rounded-full items-center justify-center ${msg.type === 'doctor' ? 'bg-emerald-500' : 'bg-cyan-500'}`} style={{ display: 'none' }}>
+                            {msg.type === 'doctor' ? (
+                              <Stethoscope className="w-3 h-3 text-white" />
+                            ) : (
+                              <User className="w-3 h-3 text-white" />
+                            )}
+                          </div>
+                          <span className="text-xs font-semibold text-gray-700">
+                            {msg.type === 'doctor' ? 'Dr. Smith' : 'Patient'}
+                          </span>
+                        </div>
+                        <p className="text-sm text-gray-800">{msg.text}</p>
+                        <span className="text-xs text-gray-500 mt-1 block">{msg.time}</span>
+                      </div>
+                    </div>
+                  ))}
+                </motion.div>
+              </div>
+            </div>
+
+            {/* Phone Mockup - Center */}
+            <motion.div
+              animate={{
+                y: [0, -20, 0],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="relative z-10 mx-auto"
+            >
+              {/* Phone frame */}
+              <div className="w-[260px] sm:w-[300px] h-[520px] sm:h-[600px] bg-gradient-to-br from-gray-800 to-gray-900 rounded-[2.5rem] sm:rounded-[3rem] p-2 sm:p-3 shadow-2xl">
+                <div className="w-full h-full bg-white rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden relative">
+                  {/* Notch */}
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 sm:w-40 h-6 sm:h-7 bg-gray-900 rounded-b-3xl z-10" />
+                  
+                  {/* Screen content */}
+                  <div className="h-full bg-gradient-to-br from-emerald-50 to-cyan-50 p-4 sm:p-6 pt-10 sm:pt-12 overflow-hidden">
+                    {/* Chat header */}
+                    <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 sm:p-4 mb-4 shadow-sm">
+                      <div className="flex items-center gap-3">
+                        <img 
+                          src="/doc.avif" 
+                          alt="Doctor" 
+                          className="w-10 h-10 rounded-full object-cover"
+                          // onError={(e) => {
+                          //   e.currentTarget.style.display = 'none';
+                          //   e.currentTarget.nextElementSibling.style.display = 'flex';
+                          // }}
+                        />
+                        <div className="w-10 h-10 rounded-full bg-emerald-400 flex items-center justify-center" style={{ display: 'none' }}>
+                          <Stethoscope className="w-5 h-5 text-white" />
+                        </div>
+                        <div>
+                          <div className="font-semibold text-sm">Dr. Smith</div>
+                          <div className="text-xs text-gray-500">Online</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Chat messages animation */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 1, duration: 0.5 }}
+                      className="space-y-3 sm:space-y-4"
+                    >
+                      <div className="flex items-start gap-2">
+                        <img 
+                          src="/doc.avif" 
+                          alt="Doctor" 
+                          className="w-7 h-7 rounded-full object-cover flex-shrink-0"
+                          // onError={(e) => {
+                          //   e.currentTarget.style.display = 'none';
+                          //   e.currentTarget.nextElementSibling.style.display = 'flex';
+                          // }}
+                        />
+                        <div className="w-7 h-7 rounded-full bg-emerald-200 flex-shrink-0" style={{ display: 'none' }} />
+                        <div className="bg-white rounded-2xl rounded-tl-sm px-3 sm:px-4 py-2 sm:py-3 shadow-sm max-w-[160px] sm:max-w-[180px]">
+                          <p className="text-xs sm:text-sm">Hi! How are you feeling today?</p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-2">
+                        <img 
+                          src="/pat.avif" 
+                          alt="Doctor" 
+                          className="w-7 h-7 rounded-full object-cover flex-shrink-0"
+                          // onError={(e) => {
+                          //   e.currentTarget.style.display = 'none';
+                          //   e.currentTarget.nextElementSibling.style.display = 'flex';
+                          // }}
+                        />
+                        <div className="w-7 h-7 rounded-full bg-sky-200 flex-shrink-0" style={{ display: 'none' }} />
+                        <div className="bg-white rounded-2xl rounded-tl-sm px-3 sm:px-4 py-2 sm:py-3 shadow-sm max-w-[160px] sm:max-w-[180px]">
+                          <p className="text-xs sm:text-sm">Much better, thank you!</p>
+                        </div>
+                      </div>
+
+                      {/* <div className="flex items-start gap-2 justify-end">
+                        <div className="bg-gradient-to-r from-emerald-500 to-cyan-500 text-white rounded-2xl rounded-tr-sm px-3 sm:px-4 py-2 sm:py-3 shadow-sm max-w-[160px] sm:max-w-[180px]">
+                          <p className="text-xs sm:text-sm">Much better, thank you!</p>
+                        </div>
+                      </div> */}
+
+                      <div className="flex items-start gap-2">
+                        <img 
+                          src="/doc.avif" 
+                          alt="Doctor" 
+                          className="w-7 h-7 rounded-full object-cover flex-shrink-0"
+                          // onError={(e) => {
+                          //   e.currentTarget.style.display = 'none';
+                          //   e.currentTarget.nextElementSibling.style.display = 'flex';
+                          // }}
+                        />
+                        <div className="w-7 h-7 rounded-full bg-gradient-to-br from-emerald-400 to-cyan-400 flex-shrink-0" style={{ display: 'none' }} />
+                        <div className="bg-white rounded-2xl rounded-tl-sm px-3 sm:px-4 py-2 sm:py-3 shadow-sm max-w-[160px] sm:max-w-[180px]">
+                          <p className="text-xs sm:text-sm">Here's your next appointment reminder</p>
+                          <div className="mt-2 p-2 bg-emerald-50 rounded-lg">
+                            <div className="text-xs font-semibold">Dec 15, 2024</div>
+                            <div className="text-xs text-gray-600">10:00 AM</div>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating cards */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 1.5, duration: 0.6 }}
+                className="absolute -left-4 sm:-left-8 top-16 sm:top-20 bg-white rounded-xl shadow-lg p-3 sm:p-4 w-40 sm:w-48 hidden lg:block"
               >
-                <PerspectiveCamera makeDefault position={[0, 0, 8]} />
-                <ambientLight intensity={0.3} />
-                <pointLight position={[10, 10, 10]} intensity={0.8} color="#2563EB" />
-                <pointLight position={[-10, -10, -10]} intensity={0.5} color="#7C3AED" />
-                <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.3}>
-                  <IndiaNetworkGlobe />
-                </Float>
-                <fog attach="fog" args={['#0F172A', 5, 15]} />
-              </Canvas>
-            )}
-            
-            <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl animate-pulse" />
-            <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-violet-600/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+                <div className="flex items-center gap-3">
+                  <div className="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-green-100 flex items-center justify-center">
+                    <CheckCircle2 className="w-4 sm:w-5 h-4 sm:h-5 text-green-600" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-gray-500">Response Rate</div>
+                    <div className="text-base sm:text-lg font-bold">98%</div>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 1.8, duration: 0.6 }}
+                className="absolute -right-4 sm:-right-8 bottom-28 sm:bottom-32 bg-white rounded-xl shadow-lg p-3 sm:p-4 w-40 sm:w-48 hidden lg:block"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-cyan-100 flex items-center justify-center">
+                    <Heart className="w-4 sm:w-5 h-4 sm:h-5 text-cyan-600" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-gray-500">Patient Satisfaction</div>
+                    <div className="text-base sm:text-lg font-bold">4.9/5</div>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
     </section>
   );
-}
+};
 
-// Feature Card 3D Section
+// Specialty Focus Section
+const SpecialtySection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  const specialties = [
+    { name: 'Pregnancy Care', icon: Baby, color: "teal-400" },
+    { name: 'Fertility', icon: Heart, color: "emerald-300" },
+    { name: 'Dermatology', icon: Sparkles, color: "yellow-300" },
+    // { name: 'Dentistry', icon: MessageSquare, color: "sky-300" },
+    
+  ];
+
+
+  const colorMap: any = {
+  "teal-400": "bg-teal-400",
+  "emerald-300": "bg-emerald-300",
+  "yellow-300": "bg-yellow-300",
+  "sky-300": "bg-sky-300"
+};
+
+  return (
+    <section ref={ref} className="py-24 bg-white">
+      <div className="container mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+            Built for specialties with{' '}
+            <span className="text-transparent bg-clip-text bg-emerald-500">
+              ongoing care needs
+            </span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Starting with specialties that have strong repeat visits and heavy follow-up requirements
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          {specialties.map((specialty, i) => (
+            <motion.div
+              key={specialty.name}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              whileHover={{ y: -8 }}
+              className="group"
+            >
+              <div className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-2xl p-6 sm:p-8 hover:shadow-xl transition-all duration-300">
+                <div className={`w-12 sm:w-14 h-12 sm:h-14 rounded-xl  ${colorMap[specialty.color]} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                  <specialty.icon className={`w-6 sm:w-7 h-6 sm:h-7 text-white`} />
+                </div>
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900">{specialty.name}</h3>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Treatment Journey Section
+const JourneySection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  const phases = [
+    {
+      title: 'Before Treatment',
+      description: 'AI collects patient history through WhatsApp. Doctors receive clean summaries.',
+      features: ['Intake & history', 'Report uploads', 'Pre-consultation prep']
+    },
+    {
+      title: 'During Treatment',
+      description: 'Patients ask questions anytime. AI provides validated responses.',
+      features: ['24/7 patient support', 'Educational content', 'Adherence tracking']
+    },
+    {
+      title: 'After Treatment',
+      description: 'Automated follow-ups and personalized care reminders.',
+      features: ['Recovery tracking', 'Long-term care', 'Referral generation']
+    }
+  ];
+
+  return (
+    <section ref={ref} className="py-16 sm:py-24 bg-gradient-to-br from-emerald-50 via-white to-cyan-50">
+      <div className="container mx-auto px-4 sm:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12 sm:mb-16"
+        >
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+            Complete care journey in{' '}
+            <span className="text-transparent bg-clip-text bg-emerald-400">
+              three simple phases
+            </span>
+          </h2>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-3 gap-6 sm:gap-8">
+          {phases.map((phase, i) => (
+            <motion.div
+              key={phase.title}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: i * 0.2 }}
+              className="relative"
+            >
+              <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                <div className="text-3xl sm:text-4xl font-bold text-gray-200 mb-4">0{i + 1}</div>
+                <h3 className="text-xl sm:text-2xl font-bold mb-4 text-gray-900">{phase.title}</h3>
+                <p className="text-sm sm:text-base text-gray-600 mb-6">{phase.description}</p>
+                <ul className="space-y-3">
+                  {phase.features.map((feature, j) => (
+                    <li key={j} className="flex items-center gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-emerald-500 flex-shrink-0" />
+                      <span className="text-sm text-gray-700">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Business Model Section
+const BusinessModelSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  return (
+    <section ref={ref} className="py-16 sm:py-24 bg-white">
+      <div className="container mx-auto px-4 sm:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12 sm:mb-16"
+        >
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+            Free for doctors and patients,{' '}
+            <span className="text-transparent bg-clip-text bg-emerald-400">
+              powered by partnerships
+            </span>
+          </h2>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="bg-gradient-to-br from-emerald-50 to-cyan-50 rounded-2xl p-8 border border-emerald-100"
+          >
+            <div className="w-14 h-14 rounded-xl bg-sky-300 flex items-center justify-center mb-6">
+              <User2Icon className="w-7 h-7 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold mb-4 text-gray-900">100% Free for Users</h3>
+            <p className="text-gray-600 leading-relaxed">
+              Both doctors and patients get full access to our AI-powered platform at no cost. No subscriptions, no hidden fees, no barriers to better healthcare.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="bg-white rounded-2xl p-8 border border-gray-200 shadow-lg"
+          >
+            <div className="w-14 h-14 rounded-xl bg-emerald-400 flex items-center justify-center mb-6">
+              <TrendingUp className="w-7 h-7 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold mb-4 text-gray-900">Revenue Model</h3>
+            <p className="text-gray-600 leading-relaxed mb-4">
+              Revenue comes from pharma and medical device companies through carefully curated ads shown only on the doctor's interface.
+            </p>
+            <div className="flex items-center gap-2 text-sm text-emerald-600 font-medium">
+              <CheckCircle2 className="w-5 h-5" />
+              Patient interface remains 100% ad-free
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Why Now Section
+const WhyNowSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  const reasons = [
+    {
+      icon: MessageCircle,
+      color: 'text-green-300',
+      title: 'WhatsApp is Already the Standard',
+      description: 'Indian patients already use WhatsApp as their default health communication channel'
+    },
+    {
+      icon: Users,
+      color: 'text-sky-300',
+      title: 'Doctors Are Overwhelmed',
+      description: 'Doctors are overloaded with unstructured chat messages and follow-ups that eat into their time'
+    },
+    {
+      icon: Sparkles,
+      color: 'text-teal-300',
+      title: 'AI Has Reached Critical Capability',
+      description: 'Advances in language models now enable safe, guided medical conversations at scale'
+    },
+    {
+      icon: Zap,
+      color: 'text-blue-400',
+      title: 'Clinics Want Simple Solutions',
+      description: 'Clinics want tech-enabled journeys without complexity or additional staff overhead'
+    }
+  ];
+
+  return (
+    <section ref={ref} className="py-16 sm:py-24 bg-gradient-to-br from-emerald-50 via-white to-cyan-50">
+      <div className="container mx-auto px-4 sm:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12 sm:mb-16"
+        >
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+            Why{' '}
+            <span className="text-transparent bg-clip-text bg-emerald-400">
+              now?
+            </span>
+          </h2>
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+            The perfect convergence of technology, behavior, and market need
+          </p>
+        </motion.div>
+
+        <div className="grid sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          {reasons.map((reason, i) => (
+            <motion.div
+              key={reason.title}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 hover:shadow-lg transition-shadow"
+            >
+              <div className="w-12 h-12 rounded-xl  flex items-center justify-center mb-4">
+                <reason.icon className={`w-6 h-6 ${reason.color} `} />
+              </div>
+              <h3 className="text-xl font-bold mb-3 text-gray-900">{reason.title}</h3>
+              <p className="text-gray-600">{reason.description}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Why Us Section
+const WhyUsSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  return (
+    <section ref={ref} className="py-16 sm:py-24 bg-white">
+      <div className="container mx-auto px-4 sm:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12 sm:mb-16"
+        >
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+            Why{' '}
+            <span className="text-transparent bg-clip-text bg-emerald-400">
+              us?
+            </span>
+          </h2>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="max-w-4xl mx-auto bg-gradient-to-br from-emerald-50 to-cyan-50 rounded-3xl p-8 sm:p-12 border border-emerald-100"
+        >
+          <div className="grid sm:grid-cols-3 gap-8 text-center">
+            <div>
+              <div className="w-16 h-16 rounded-full bg-emerald-400 flex items-center justify-center mx-auto mb-4">
+                <Target className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-lg font-bold mb-2 text-gray-900">Healthcare Expertise</h3>
+              <p className="text-sm text-gray-600">Experience building digital and AI solutions in healthcare</p>
+            </div>
+            <div>
+              <div className="w-16 h-16 rounded-full bg-cyan-400 flex items-center justify-center mx-auto mb-4">
+                <Users className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-lg font-bold mb-2 text-gray-900">Deep Market Understanding</h3>
+              <p className="text-sm text-gray-600">Deep understanding of Indian clinic workflows and needs</p>
+            </div>
+            <div>
+              <div className="w-16 h-16 rounded-full bg-yellow-200 flex items-center justify-center mx-auto mb-4">
+                <Sparkles className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-lg font-bold mb-2 text-gray-900">Product Excellence</h3>
+              <p className="text-sm text-gray-600">Strong product and design capability to execute the vision</p>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+// CTA Section
+const CTASection = () => {
+  return (
+    <section className="py-16 sm:py-24 bg-emerald-400 relative overflow-hidden">
+      <div className="absolute inset-0 bg-grid-white/10" />
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center max-w-4xl mx-auto"
+        >
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
+            We are opening pilots and raising capital
+          </h2>
+          <p className="text-lg sm:text-xl text-white/90 mb-8 sm:mb-12">
+            Partnering with early adopter doctors and clinics while raising to scale our AI models, expand into key cities, and build partnerships with pharma and device companies
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-6 sm:px-8 py-3 sm:py-4 bg-white text-gray-900 rounded-xl font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-shadow"
+            >
+              Request Investor Call
+              <ArrowRight className="w-5 h-5" />
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-6 sm:px-8 py-3 sm:py-4 bg-transparent border-2 border-white text-white rounded-xl font-semibold hover:bg-white/10 transition-colors"
+            >
+              Get Investor Deck
+            </motion.button>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
 
 // Main Landing Page
-export default function ABDMLandingPage() {
+export default function LandingPage() {
   return (
-    <main className="bg-slate-950">
-      <AnimatedNavbar />
-      <HeroSection />
-      <FeatureCards3D />
-    </main>
+    <div className="min-h-screen">
+      <Navbar />
+      <div className="pt-16 sm:pt-20">
+        <HeroSection />
+        <SpecialtySection />
+        <JourneySection />
+        <BusinessModelSection />
+        <WhyNowSection />
+        <WhyUsSection />
+        <CTASection />
+      </div>
+    </div>
   );
 }
