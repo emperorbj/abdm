@@ -310,7 +310,7 @@ const HeroSection = () => {
                         </div>
                         <div>
                           <div className="font-semibold text-sm">Dr. Smith</div>
-                          <div className="text-xs text-gray-500">Online</div>
+                          <div className="text-xs text-green-500">Online</div>
                         </div>
                       </div>
                     </div>
