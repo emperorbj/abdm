@@ -36,7 +36,7 @@ const Navbar = () => {
             className="text-xl sm:text-2xl font-bold text-gray-900"
           >
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-cyan-500">
-              Humane AI
+              AI Care Coordination
             </span>
           </motion.div>
 
