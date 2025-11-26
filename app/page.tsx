@@ -334,7 +334,7 @@ const HeroSection = () => {
                         />
                         <div className="w-7 h-7 rounded-full bg-emerald-200 flex-shrink-0" style={{ display: 'none' }} />
                         <div className="bg-white rounded-2xl rounded-tl-sm px-3 sm:px-4 py-2 sm:py-3 shadow-sm max-w-[160px] sm:max-w-[180px]">
-                          <p className="text-xs sm:text-sm">Hi! How are you feeling today?</p>
+                          <p className="text-xs sm:text-sm">Are ready to go forward with the IVF treatment?</p>
                         </div>
                       </div>
 
@@ -350,7 +350,7 @@ const HeroSection = () => {
                         />
                         <div className="w-7 h-7 rounded-full bg-sky-200 flex-shrink-0" style={{ display: 'none' }} />
                         <div className="bg-white rounded-2xl rounded-tl-sm px-3 sm:px-4 py-2 sm:py-3 shadow-sm max-w-[160px] sm:max-w-[180px]">
-                          <p className="text-xs sm:text-sm">Much better, thank you!</p>
+                          <p className="text-xs sm:text-sm">Yeah! we can go ahead with this</p>
                         </div>
                       </div>
 
@@ -372,11 +372,11 @@ const HeroSection = () => {
                         />
                         <div className="w-7 h-7 rounded-full bg-gradient-to-br from-emerald-400 to-cyan-400 flex-shrink-0" style={{ display: 'none' }} />
                         <div className="bg-white rounded-2xl rounded-tl-sm px-3 sm:px-4 py-2 sm:py-3 shadow-sm max-w-[160px] sm:max-w-[180px]">
-                          <p className="text-xs sm:text-sm">Here's your next appointment reminder</p>
-                          <div className="mt-2 p-2 bg-emerald-50 rounded-lg">
-                            <div className="text-xs font-semibold">Dec 15, 2024</div>
-                            <div className="text-xs text-gray-600">10:00 AM</div>
-                          </div>
+                          <p className="text-xs sm:text-sm">Ok great! check in by 10:00 AM. So we can begin</p>
+                          {/* <div className="mt-2 p-2 bg-emerald-50 rounded-lg"> */}
+                            {/* <div className="text-xs font-semibold">Dec 15, 2024</div>
+                            <div className="text-xs text-gray-600">10:00 AM</div> */}
+                          {/* </div> */}
                         </div>
                       </div>
                     </motion.div>
@@ -402,11 +402,11 @@ const HeroSection = () => {
                 </div>
               </motion.div>
 
-              <motion.div
+              {/* <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 1.8, duration: 0.6 }}
-                className="absolute -right-4 sm:-right-8 bottom-28 sm:bottom-32 bg-white rounded-xl shadow-lg p-3 sm:p-4 w-40 sm:w-48 hidden lg:block"
+                className="absolute -right-4 sm:-right-8 -[100px] sm:bottom-32 bg-white rounded-xl shadow-lg p-3 sm:p-4 w-40 sm:w-48 hidden lg:block"
               >
                 <div className="flex items-center gap-3">
                   <div className="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-cyan-100 flex items-center justify-center">
@@ -417,7 +417,7 @@ const HeroSection = () => {
                     <div className="text-base sm:text-lg font-bold">4.9/5</div>
                   </div>
                 </div>
-              </motion.div>
+              </motion.div> */}
             </motion.div>
           </motion.div>
         </div>
@@ -435,7 +435,10 @@ const SpecialtySection = () => {
     { name: 'Pregnancy Care', icon: Baby, color: "teal-400" },
     { name: 'Fertility', icon: Heart, color: "emerald-300" },
     { name: 'Dermatology', icon: Sparkles, color: "yellow-300" },
-    // { name: 'Dentistry', icon: MessageSquare, color: "sky-300" },
+    { name: 'Dentistry', icon: MessageSquare, color: "sky-300" },
+    {name: 'Diabetology', icon: Zap, color: "teal-400"},
+    {name: 'Dermatology', icon: Heart, color: "emerald-300"},
+    {name: 'Pediatrics', icon: Users, color: "teal-400"},
     
   ];
 
@@ -897,7 +900,7 @@ const CTASection = () => {
             We are opening pilots and raising capital
           </h2>
           <p className="text-lg sm:text-xl text-white/90 mb-8 sm:mb-12">
-            Partnering with early adopter doctors and clinics while raising to scale our AI models, expand into key cities, and build partnerships with pharma and device companies
+          Partnering with early adopter doctors and clinics while raising capital to scale our AI models, expand into key cities, and build partnerships with pharma and device companies
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <motion.button
