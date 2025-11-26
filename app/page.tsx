@@ -42,13 +42,13 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-gray-700 hover:text-emerald-600 transition-colors">Features</a>
-            <a href="#specialties" className="text-gray-700 hover:text-emerald-600 transition-colors">Specialties</a>
-            <a href="#about" className="text-gray-700 hover:text-emerald-600 transition-colors">About</a>
+            <a href="#features" className="text-gray-700 text-sm hover:text-emerald-600 transition-colors">Features</a>
+            <a href="#specialties" className="text-gray-700 text-sm hover:text-emerald-600 transition-colors">Specialties</a>
+            <a href="#about" className="text-gray-700 text-sm hover:text-emerald-600 transition-colors">About</a>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 py-2 border  border-emerald-500 text-emerald-400 rounded-lg font-semibold"
+              className="px-6 py-2 border text-sm  border-emerald-500 text-emerald-400 rounded-lg font-semibold"
             >
               Get Started
             </motion.button>
@@ -147,14 +147,14 @@ const HeroSection = () => {
               Empowering Healthcare with AI
             </div>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight">
+            <h1 className="text-2xl sm:text-2xl lg:text-3xl font-bold leading-tight">
               AI powered patient journeys for{' '}
               <span className="text-transparent bg-clip-text bg-emerald-400 ">
                 ambitious Indian doctors
               </span>
             </h1>
             
-            <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
+            <p className="text-sm  text-gray-600 leading-relaxed">
               We help doctors in India earn more, retain patients better, and stand out from competitors using a simple AI layer on top of WhatsApp and a doctor dashboard.
             </p>
 
@@ -162,7 +162,7 @@ const HeroSection = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 sm:px-8 py-3 sm:py-4 border border-emerald-400 text-emerald-500  rounded-xl font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-shadow"
+                className="px-6 text-sm sm:px-8 py-3 sm:py-4 border border-emerald-400 text-emerald-500  rounded-xl font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-shadow"
               >
                 Talk to the Founders
                 <ArrowRight className="w-5 h-5" />
@@ -171,7 +171,7 @@ const HeroSection = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 sm:px-8 py-3 sm:py-4 bg-white border-2 border-gray-200 text-gray-700 rounded-xl font-semibold flex items-center justify-center gap-2 hover:border-emerald-300 transition-colors"
+                className="px-6 text-sm sm:px-8 py-3 sm:py-4 bg-white border-2 border-gray-200 text-gray-700 rounded-xl font-semibold flex items-center justify-center gap-2 hover:border-emerald-300 transition-colors"
               >
                 <Play className="w-5 h-5" />
                 View Demo
@@ -203,11 +203,11 @@ const HeroSection = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="relative h-[500px] sm:h-[600px] flex items-center justify-center order-1 lg:order-2"
+            className="relative h-[200px] sm:h-[200px] flex items-center justify-center order-1 lg:order-2"
           >
             {/* Animated Chat Bubbles - Left side */}
             <div className="absolute left-0 top-0 bottom-0 w-full lg:w-auto flex items-center justify-center lg:justify-start">
-              <div className="relative h-[450px] sm:h-[550px] w-full max-w-[280px] lg:max-w-none lg:w-[280px] overflow-hidden">
+              <div className="relative h-[300px] sm:h-[300px] w-full max-w-[280px] lg:max-w-none lg:w-[280px] overflow-hidden">
                 <motion.div
                   animate={{
                     y: [0, -100 * chatMessages.length]
@@ -225,7 +225,7 @@ const HeroSection = () => {
                       className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}
                     >
                       <div
-                        className={`max-w-[220px] px-4 py-3 rounded-2xl backdrop-blur-md ${
+                        className={`max-w-[220px] text-sm px-4 py-3 rounded-2xl backdrop-blur-md ${
                           msg.type === 'user'
                             ? 'bg-cyan-500/10 border border-cyan-400 ml-auto'
                             : 'bg-gray-500/10 border border-gray-400'
@@ -286,7 +286,7 @@ const HeroSection = () => {
               className="relative z-10 mx-auto"
             >
               {/* Phone frame */}
-              <div className="w-[260px] sm:w-[300px] h-[520px] sm:h-[600px] bg-gradient-to-br from-gray-800 to-gray-900 rounded-[2.5rem] sm:rounded-[3rem] p-2 sm:p-3 shadow-2xl">
+              <div className="w-[260px] sm:w-[280px] h-[450px] sm:h-[500px] bg-gradient-to-br from-gray-800 to-gray-900 rounded-[2.5rem] sm:rounded-[3rem] p-2 sm:p-3 shadow-2xl">
                 <div className="w-full h-full bg-white rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden relative">
                   {/* Notch */}
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 sm:w-40 h-6 sm:h-7 bg-gray-900 rounded-b-3xl z-10" />
@@ -456,13 +456,13 @@ const SpecialtySection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-2xl lg:text-3xl font-semibold mb-6">
             Built for specialties with{' '}
-            <span className="text-transparent bg-clip-text bg-emerald-500">
+            <span className="text-transparent  bg-clip-text bg-emerald-500">
               ongoing care needs
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-md text-gray-600 max-w-3xl mx-auto">
             Starting with specialties that have strong repeat visits and heavy follow-up requirements
           </p>
         </motion.div>
@@ -523,9 +523,9 @@ const JourneySection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4 sm:mb-6">
             Complete care journey in{' '}
-            <span className="text-transparent bg-clip-text bg-emerald-400">
+            <span className="text-transparent  bg-clip-text bg-emerald-400">
               three simple phases
             </span>
           </h2>
@@ -575,7 +575,7 @@ const BusinessModelSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-4 sm:mb-6">
             Free for doctors and patients,{' '}
             <span className="text-transparent bg-clip-text bg-emerald-400">
               powered by partnerships
@@ -664,7 +664,7 @@ const WhyNowSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4 sm:mb-6">
             Why{' '}
             <span className="text-transparent bg-clip-text bg-emerald-400">
               now?
@@ -711,7 +711,7 @@ const WhyUsSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4 sm:mb-6">
             Why{' '}
             <span className="text-transparent bg-clip-text bg-emerald-400">
               us?
@@ -754,11 +754,137 @@ const WhyUsSection = () => {
   );
 };
 
-// CTA Section
+
+
+// Animated Map Background Component
+const AnimatedMapBackground = () => {
+  return (
+    <div className="absolute inset-0 overflow-hidden opacity-20">
+      {/* Animated dots representing cities/locations */}
+      <svg className="w-full h-full" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice">
+        {/* Grid lines - subtle world map feel */}
+        <defs>
+          <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
+            <path d="M 100 0 L 0 0 0 100" fill="none" stroke="white" strokeWidth="0.5" opacity="0.3"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid)" />
+        
+        {/* Animated connection lines */}
+        {[
+          { x1: 200, y1: 200, x2: 400, y2: 250, delay: 0 },
+          { x1: 400, y1: 250, x2: 600, y2: 200, delay: 0.5 },
+          { x1: 600, y1: 200, x2: 750, y2: 300, delay: 1 },
+          { x1: 300, y1: 350, x2: 500, y2: 400, delay: 1.5 },
+          { x1: 500, y1: 400, x2: 700, y2: 380, delay: 2 },
+        ].map((line, i) => (
+          <motion.line
+            key={i}
+            x1={line.x1}
+            y1={line.y1}
+            x2={line.x2}
+            y2={line.y2}
+            stroke="white"
+            strokeWidth="1.5"
+            strokeDasharray="5,5"
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={{ 
+              pathLength: [0, 1, 1, 0],
+              opacity: [0, 1, 1, 0]
+            }}
+            transition={{
+              duration: 3,
+              delay: line.delay,
+              repeat: Infinity,
+              repeatDelay: 2
+            }}
+          />
+        ))}
+        
+        {/* Pulsing location dots */}
+        {[
+          { cx: 200, cy: 200, delay: 0 },
+          { cx: 400, cy: 250, delay: 0.3 },
+          { cx: 600, cy: 200, delay: 0.6 },
+          { cx: 750, cy: 300, delay: 0.9 },
+          { cx: 300, cy: 350, delay: 1.2 },
+          { cx: 500, cy: 400, delay: 1.5 },
+          { cx: 700, cy: 380, delay: 1.8 },
+          { cx: 450, cy: 150, delay: 2.1 },
+          { cx: 550, cy: 320, delay: 2.4 },
+          { cx: 350, cy: 280, delay: 2.7 },
+        ].map((dot, i) => (
+          <g key={i}>
+            <motion.circle
+              cx={dot.cx}
+              cy={dot.cy}
+              r="4"
+              fill="white"
+              initial={{ scale: 0.8 }}
+              animate={{ scale: [0.8, 1.2, 0.8] }}
+              transition={{
+                duration: 2,
+                delay: dot.delay,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+            <motion.circle
+              cx={dot.cx}
+              cy={dot.cy}
+              r="8"
+              fill="none"
+              stroke="white"
+              strokeWidth="1"
+              initial={{ scale: 0.5, opacity: 0.8 }}
+              animate={{ 
+                scale: [0.5, 1.5, 0.5],
+                opacity: [0.8, 0, 0.8]
+              }}
+              transition={{
+                duration: 2,
+                delay: dot.delay,
+                repeat: Infinity,
+                ease: "easeOut"
+              }}
+            />
+          </g>
+        ))}
+      </svg>
+      
+      {/* Floating particles */}
+      <div className="absolute inset-0">
+        {[...Array(15)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 bg-white rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -30, 0],
+              x: [0, Math.random() * 20 - 10, 0],
+              opacity: [0.3, 0.8, 0.3],
+            }}
+            transition={{
+              duration: 3 + Math.random() * 2,
+              repeat: Infinity,
+              delay: Math.random() * 2,
+              ease: "easeInOut"
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+// CTA Section with Animated Map Background
 const CTASection = () => {
   return (
     <section className="py-16 sm:py-24 bg-emerald-400 relative overflow-hidden">
-      <div className="absolute inset-0 bg-grid-white/10" />
+      <AnimatedMapBackground />
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -767,7 +893,7 @@ const CTASection = () => {
           viewport={{ once: true }}
           className="text-center max-w-4xl mx-auto"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-4 sm:mb-6">
             We are opening pilots and raising capital
           </h2>
           <p className="text-lg sm:text-xl text-white/90 mb-8 sm:mb-12">
@@ -794,7 +920,7 @@ const CTASection = () => {
       </div>
     </section>
   );
-};
+}
 
 // Main Landing Page
 export default function LandingPage() {
