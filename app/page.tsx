@@ -553,7 +553,8 @@ const HeroSection = () => {
             >
               <Iphone
                 src="/phone.png"
-                className="w-[240px] sm:w-[260px] lg:w-[280px] h-auto mx-auto"
+
+className="w-[200px] sm:w-[220px] lg:w-[240px] h-[400px] sm:h-[440px] lg:h-[480px] mx-auto"                // className="w-[240px] sm:w-[260px] lg:w-[280px] lg:h-[450px] mx-auto"
               />
             </motion.div>
           </motion.div>
