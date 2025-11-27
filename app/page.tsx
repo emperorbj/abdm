@@ -1519,7 +1519,7 @@ const HeroSection = () => {
                           />
                         )}
                         <span className="text-xs font-semibold text-gray-700">
-                          {msg.type === 'doctor' ? 'Dr. Smith' : 'Patient'}
+                          {msg.type === 'doctor' ? 'Dr. Patel' : 'Patient'}
                         </span>
                       </div>
                       <p className="text-sm text-gray-800">{msg.text}</p>
