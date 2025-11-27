@@ -102,6 +102,260 @@ const Navbar = () => {
 };
 
 // Hero Section with Animated Phone Mockup and Chat Bubbles
+// const HeroSection = () => {
+//   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  
+//   useEffect(() => {
+//     const handleMouseMove = (e: MouseEvent) => {
+//       setMousePosition({
+//         x: (e.clientX / window.innerWidth - 0.5) * 20,
+//         y: (e.clientY / window.innerHeight - 0.5) * 20
+//       });
+//     };
+//     window.addEventListener('mousemove', handleMouseMove);
+//     return () => window.removeEventListener('mousemove', handleMouseMove);
+//   }, []);
+
+//   // Chat messages data
+//   const chatMessages = [
+//     { type: 'doctor', text: 'How long have you been trying to get pregnant?', time: '9:30 AM' },
+//     { type: 'user', text: 'for almost 3 years.', time: '9:32 AM' },
+//     { type: 'doctor', text: "How regular are your periods?", time: '9:33 AM' },
+//     { type: 'user', text: 'Well not so regular', time: '9:35 AM' },
+//     { type: 'doctor', text: 'Are you on any medications?', time: '9:36 AM' },
+//     { type: 'user', text: 'No', time: '9:37 AM' },
+//     { type: 'doctor', text: 'Ok I will send you a slot for examination', time: '9:38 AM' },
+//   ];
+
+//   return (
+//     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-emerald-50 via-white to-cyan-50">
+//       {/* Animated background elements */}
+//       <div className="absolute inset-0 overflow-hidden">
+//         <motion.div
+//           className="absolute top-20 left-10 w-72 h-72 bg-emerald-200 rounded-full mix-blend-multiply filter blur-xl opacity-30"
+//           animate={{
+//             x: mousePosition.x * 2,
+//             y: mousePosition.y * 2,
+//           }}
+//           transition={{ type: "spring", stiffness: 50 }}
+//         />
+//         <motion.div
+//           className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-200 rounded-full mix-blend-multiply filter blur-xl opacity-30"
+//           animate={{
+//             x: mousePosition.x * -1.5,
+//             y: mousePosition.y * -1.5,
+//           }}
+//           transition={{ type: "spring", stiffness: 50 }}
+//         />
+//       </div>
+
+//       <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-20 relative z-10">
+//         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+//           {/* Left Content */}
+//           <motion.div
+//             initial={{ opacity: 0, x: -50 }}
+//             animate={{ opacity: 1, x: 0 }}
+//             transition={{ duration: 0.8 }}
+//             className="space-y-6 mt-20 md:mt-0 sm:space-y-8 order-2 lg:order-1"
+//           >
+//             <ShimmerButton shimmerColor="#81E6D9" // bright green shimmer
+//   background="rgba(255, 255, 255, 0.05)" // transparent glassy background
+//   // style={{ backdropFilter: "blur(10px)" }}
+//   >
+//             {/* <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-100 rounded-full text-sm font-medium text-emerald-700"> */}
+//               <Sparkles className="w-4 h-4" />
+//               Empowering Healthcare with AI
+//             </ShimmerButton>
+//             {/* </div> */}
+            
+//             <h1 className="text-2xl sm:text-2xl lg:text-3xl font-bold leading-tight">
+//               AI powered patient journeys for{' '}
+//               <TypingAnimation className="text-transparent bg-clip-text bg-emerald-500">
+//                 ambitious Indian doctors
+//               </TypingAnimation>
+//             </h1>
+            
+//             <p className="text-sm  text-gray-600 leading-relaxed">
+//               We help doctors in India earn more, retain patients better, and stand out from competitors using a simple AI layer on top of WhatsApp and a doctor dashboard.
+//             </p>
+
+//             <div className="flex flex-col sm:flex-row gap-4 pt-4">
+//               <motion.button
+//                 whileHover={{ scale: 1.05 }}
+//                 whileTap={{ scale: 0.95 }}
+//                 className="px-6 text-sm sm:px-8 py-3 sm:py-4 border border-emerald-400 text-emerald-500  rounded-xl font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-shadow"
+//               >
+//                 Talk to the Founders
+//                 <ArrowRight className="w-5 h-5" />
+//               </motion.button>
+              
+//               <motion.button
+//                 whileHover={{ scale: 1.05 }}
+//                 whileTap={{ scale: 0.95 }}
+//                 className="px-6 text-sm sm:px-8 py-3 sm:py-4 bg-white border-2 border-gray-200 text-gray-700 rounded-xl font-semibold flex items-center justify-center gap-2 hover:border-emerald-300 transition-colors"
+//               >
+//                 <Play className="w-5 h-5" />
+//                 View Demo
+//               </motion.button>
+//             </div>
+
+//             {/* Key metrics */}
+//             <div className="grid grid-cols-3 gap-4 sm:gap-6 pt-6 sm:pt-8">
+//               {[
+//                 { value: '3x', label: 'More Patients' },
+//                 { value: '50%', label: 'Time Saved' },
+//                 { value: '95%', label: 'Satisfaction' }
+//               ].map((stat, i) => (
+//                 <motion.div
+//                   key={i}
+//                   initial={{ opacity: 0, y: 20 }}
+//                   animate={{ opacity: 1, y: 0 }}
+//                   transition={{ delay: 0.8 + i * 0.1 }}
+//                 >
+//                   <div className="text-2xl sm:text-3xl font-bold text-gray-900">{stat.value}</div>
+//                   <div className="text-xs sm:text-sm text-gray-600">{stat.label}</div>
+//                 </motion.div>
+//               ))}
+//             </div>
+//           </motion.div>
+
+//           {/* Right - Animated Phone Mockup with Chat Bubbles */}
+//           <motion.div
+//             initial={{ opacity: 0, x: 50 }}
+//             animate={{ opacity: 1, x: 0 }}
+//             transition={{ duration: 0.8 }}
+//             className="relative z-20 mt-10 md:mt-0 h-[200px] sm:h-[200px]   flex items-center justify-center order-1 lg:order-3"
+//           >
+//           <div className="absolute left-0 top-0 bottom-0 w-full lg:w-auto hidden md:flex items-center justify-center lg:justify-start">
+//               <div className="relative h-[300px] sm:h-[300px] w-full max-w-[280px] lg:max-w-none lg:w-[290px] overflow-hidden">
+//                 <motion.div
+//                   animate={{
+//                     y: [0, -100 * chatMessages.length]
+//                   }}
+//                   transition={{
+//                     duration: chatMessages.length,
+//                     repeat: Infinity,
+//                     ease: "linear"
+//                   }}
+//                   className="space-y-3"
+//                 >
+//                   {[...chatMessages, ...chatMessages].map((msg, idx) => (
+//                     <div
+//                       key={idx}
+//                       // className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}
+//                     >
+//                       <div
+//                         className={`max-w-[200px] text-sm px-4 py-1 rounded-2xl backdrop-blur-md ${
+//                           msg.type === 'user'
+//                             ? 'bg-transparent border border-cyan-400 ml-auto'
+//                             : 'bg-transparent border border-gray-400'
+//                         }`}
+//                       >
+//                         <div className="flex items-center gap-2 mb-1">
+//                           {msg.type === 'doctor' ? (
+//                             <img 
+//                               src="/doc.avif" 
+//                               alt="Doctor" 
+//                               className="w-4 h-4 rounded-full object-cover"
+//                               // onError={(e) => {
+//                               //   e.currentTarget.style.display = 'none';
+//                               //   e.currentTarget.nextElementSibling.style.display = 'flex';
+//                               // }}
+//                             />
+//                           ) : (
+//                             <img 
+//                               src="/pat.avif" 
+//                               alt="Patient" 
+//                               className="w-4 h-4 rounded-full object-cover"
+//                               // onError={(e) => {
+//                               //   e.currentTarget.style.display = 'none';
+//                               //   e.currentTarget.nextElementSibling.style.display = 'flex';
+//                               // }}
+//                             />
+//                           )}
+//                           <div className={`w-4 h-4 rounded-full items-center justify-center ${msg.type === 'doctor' ? 'bg-emerald-500' : 'bg-cyan-500'}`} style={{ display: 'none' }}>
+//                             {msg.type === 'doctor' ? (
+//                               <Stethoscope className="w-3 h-3 text-white" />
+//                             ) : (
+//                               <User className="w-3 h-3 text-white" />
+//                             )}
+//                           </div>
+//                           <span className="text-xs font-semibold text-gray-700">
+//                             {msg.type === 'doctor' ? 'Dr. Smith' : 'Patient'}
+//                           </span>
+//                         </div>
+//                         <p className="text-sm text-gray-800">{msg.text}</p>
+//                         <span className="text-xs text-gray-500 mt-1 block">{msg.time}</span>
+//                       </div>
+//                     </div>
+//                   ))}
+//                 </motion.div>
+//               </div>
+//             </div>
+//             {/* Phone Mockup - Center */}
+//             <motion.div
+//               animate={{
+//                 y: [0, -20, 0],
+//               }}
+//               transition={{
+//                 duration: 4,
+//                 repeat: Infinity,
+//                 ease: "easeInOut"
+//               }}
+//               className="relative z-10 mx-auto"
+//             >
+//               <Iphone
+//                 src="/phone.png"
+//                 className="w-[200px] md:w-[260px] sm:w-[280px] h-[300px] lg:h-[500px] mx-auto"
+//               />
+
+//               {/* Floating cards */}
+//               {/* <motion.div
+//                 initial={{ opacity: 0, x: -20 }}
+//                 animate={{ opacity: 1, x: 0 }}
+//                 transition={{ delay: 1.5, duration: 0.6 }}
+//                 className="absolute -left-4 sm:-left-8 top-16 sm:top-20 bg-white rounded-xl shadow-lg p-3 sm:p-4 w-40 sm:w-48 hidden lg:block"
+//               >
+//                 <div className="flex items-center gap-3">
+//                   <div className="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-green-100 flex items-center justify-center">
+//                     <CheckCircle2 className="w-4 sm:w-5 h-4 sm:h-5 text-green-600" />
+//                   </div>
+//                   <div>
+//                     <div className="text-xs text-gray-500">Response Rate</div>
+//                     <div className="text-base sm:text-lg font-bold">98%</div>
+//                   </div>
+//                 </div>
+//               </motion.div> */}
+
+//               {/* <motion.div
+//                 initial={{ opacity: 0, x: 20 }}
+//                 animate={{ opacity: 1, x: 0 }}
+//                 transition={{ delay: 1.8, duration: 0.6 }}
+//                 className="absolute -right-4 sm:-right-8 -[100px] sm:bottom-32 bg-white rounded-xl shadow-lg p-3 sm:p-4 w-40 sm:w-48 hidden lg:block"
+//               >
+//                 <div className="flex items-center gap-3">
+//                   <div className="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-cyan-100 flex items-center justify-center">
+//                     <Heart className="w-4 sm:w-5 h-4 sm:h-5 text-cyan-600" />
+//                   </div>
+//                   <div>
+//                     <div className="text-xs text-gray-500">Patient Satisfaction</div>
+//                     <div className="text-base sm:text-lg font-bold">4.9/5</div>
+//                   </div>
+//                 </div>
+//               </motion.div> */}
+//             </motion.div>
+           
+
+             
+            
+//           </motion.div>
+           
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
 const HeroSection = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   
@@ -149,41 +403,46 @@ const HeroSection = () => {
         />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* Left Content */}
+      <div className="container mx-auto px-4 sm:px-6 py-20 sm:py-24 relative z-10">
+        {/* Main Content Wrapper - 3 columns on desktop, stacked on mobile */}
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-6">
+          
+          {/* LEFT: Animated Chat Bubbles */}
+         
+
+          {/* CENTER: Hero Text Content */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="space-y-6 mt-20 md:mt-0 sm:space-y-8 order-2 lg:order-1"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex-1 max-w-xl space-y-6 sm:space-y-8 text-center lg:text-left"
           >
-            <ShimmerButton shimmerColor="#81E6D9" // bright green shimmer
-  background="rgba(255, 255, 255, 0.05)" // transparent glassy background
-  // style={{ backdropFilter: "blur(10px)" }}
-  >
-            {/* <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-100 rounded-full text-sm font-medium text-emerald-700"> */}
+            <ShimmerButton 
+              shimmerColor="#81E6D9"
+              background="rgba(255, 255, 255, 0.05)"
+              className="mx-auto lg:mx-0"
+            >
               <Sparkles className="w-4 h-4" />
               Empowering Healthcare with AI
             </ShimmerButton>
-            {/* </div> */}
             
-            <h1 className="text-2xl sm:text-2xl lg:text-3xl font-bold leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
               AI powered patient journeys for{' '}
               <TypingAnimation className="text-transparent bg-clip-text bg-emerald-500">
                 ambitious Indian doctors
               </TypingAnimation>
             </h1>
             
-            <p className="text-sm  text-gray-600 leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
               We help doctors in India earn more, retain patients better, and stand out from competitors using a simple AI layer on top of WhatsApp and a doctor dashboard.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 text-sm sm:px-8 py-3 sm:py-4 border border-emerald-400 text-emerald-500  rounded-xl font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-shadow"
+                // onClick={() => scrollToSection('cta-section')}
+                className="px-6 text-sm sm:px-8 py-3 sm:py-4 border border-emerald-400 text-emerald-500 rounded-xl font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-shadow"
               >
                 Talk to the Founders
                 <ArrowRight className="w-5 h-5" />
@@ -210,7 +469,8 @@ const HeroSection = () => {
                   key={i}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8 + i * 0.1 }}
+                  transition={{ delay: 1 + i * 0.1 }}
+                  className="text-center lg:text-left"
                 >
                   <div className="text-2xl sm:text-3xl font-bold text-gray-900">{stat.value}</div>
                   <div className="text-xs sm:text-sm text-gray-600">{stat.label}</div>
@@ -219,80 +479,67 @@ const HeroSection = () => {
             </div>
           </motion.div>
 
-          {/* Right - Animated Phone Mockup with Chat Bubbles */}
+           <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="hidden lg:block flex-1 max-w-[280px]"
+          >
+            <div className="relative h-[400px] overflow-hidden">
+              <motion.div
+                animate={{
+                  y: [0, -100 * chatMessages.length]
+                }}
+                transition={{
+                  duration: chatMessages.length * 2,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+                className="space-y-3"
+              >
+                {[...chatMessages, ...chatMessages].map((msg, idx) => (
+                  <div key={idx}>
+                    <div
+                      className={`max-w-[240px] text-sm px-4 py-2 rounded-2xl backdrop-blur-md ${
+                        msg.type === 'user'
+                          ? 'bg-transparent border border-cyan-400 ml-auto'
+                          : 'bg-transparent border border-gray-400'
+                      }`}
+                    >
+                      <div className="flex items-center gap-2 mb-1">
+                        {msg.type === 'doctor' ? (
+                          <img 
+                            src="/doc.avif" 
+                            alt="Doctor" 
+                            className="w-5 h-5 rounded-full object-cover"
+                          />
+                        ) : (
+                          <img 
+                            src="/pat.avif" 
+                            alt="Patient" 
+                            className="w-5 h-5 rounded-full object-cover"
+                          />
+                        )}
+                        <span className="text-xs font-semibold text-gray-700">
+                          {msg.type === 'doctor' ? 'Dr. Smith' : 'Patient'}
+                        </span>
+                      </div>
+                      <p className="text-sm text-gray-800">{msg.text}</p>
+                      <span className="text-xs text-gray-500 mt-1 block">{msg.time}</span>
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* RIGHT: Phone Mockup */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="relative z-20 mt-10 md:mt-0 h-[200px] sm:h-[200px]   flex items-center justify-center order-1 lg:order-3"
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex-1 flex items-center justify-center lg:justify-end max-w-[300px]"
           >
-          <div className="absolute left-0 top-0 bottom-0 w-full lg:w-auto hidden md:flex items-center justify-center lg:justify-start">
-              <div className="relative h-[300px] sm:h-[300px] w-full max-w-[280px] lg:max-w-none lg:w-[290px] overflow-hidden">
-                <motion.div
-                  animate={{
-                    y: [0, -100 * chatMessages.length]
-                  }}
-                  transition={{
-                    duration: chatMessages.length,
-                    repeat: Infinity,
-                    ease: "linear"
-                  }}
-                  className="space-y-3"
-                >
-                  {[...chatMessages, ...chatMessages].map((msg, idx) => (
-                    <div
-                      key={idx}
-                      // className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}
-                    >
-                      <div
-                        className={`max-w-[200px] text-sm px-4 py-1 rounded-2xl backdrop-blur-md ${
-                          msg.type === 'user'
-                            ? 'bg-transparent border border-cyan-400 ml-auto'
-                            : 'bg-transparent border border-gray-400'
-                        }`}
-                      >
-                        <div className="flex items-center gap-2 mb-1">
-                          {msg.type === 'doctor' ? (
-                            <img 
-                              src="/doc.avif" 
-                              alt="Doctor" 
-                              className="w-4 h-4 rounded-full object-cover"
-                              // onError={(e) => {
-                              //   e.currentTarget.style.display = 'none';
-                              //   e.currentTarget.nextElementSibling.style.display = 'flex';
-                              // }}
-                            />
-                          ) : (
-                            <img 
-                              src="/pat.avif" 
-                              alt="Patient" 
-                              className="w-4 h-4 rounded-full object-cover"
-                              // onError={(e) => {
-                              //   e.currentTarget.style.display = 'none';
-                              //   e.currentTarget.nextElementSibling.style.display = 'flex';
-                              // }}
-                            />
-                          )}
-                          <div className={`w-4 h-4 rounded-full items-center justify-center ${msg.type === 'doctor' ? 'bg-emerald-500' : 'bg-cyan-500'}`} style={{ display: 'none' }}>
-                            {msg.type === 'doctor' ? (
-                              <Stethoscope className="w-3 h-3 text-white" />
-                            ) : (
-                              <User className="w-3 h-3 text-white" />
-                            )}
-                          </div>
-                          <span className="text-xs font-semibold text-gray-700">
-                            {msg.type === 'doctor' ? 'Dr. Smith' : 'Patient'}
-                          </span>
-                        </div>
-                        <p className="text-sm text-gray-800">{msg.text}</p>
-                        <span className="text-xs text-gray-500 mt-1 block">{msg.time}</span>
-                      </div>
-                    </div>
-                  ))}
-                </motion.div>
-              </div>
-            </div>
-            {/* Phone Mockup - Center */}
             <motion.div
               animate={{
                 y: [0, -20, 0],
@@ -302,58 +549,20 @@ const HeroSection = () => {
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="relative z-10 mx-auto"
+              className="relative"
             >
               <Iphone
                 src="/phone.png"
-                className="w-[200px] md:w-[260px] sm:w-[280px] h-[300px] lg:h-[500px] mx-auto"
+                className="w-[240px] sm:w-[260px] lg:w-[280px] h-auto mx-auto"
               />
-
-              {/* Floating cards */}
-              {/* <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1.5, duration: 0.6 }}
-                className="absolute -left-4 sm:-left-8 top-16 sm:top-20 bg-white rounded-xl shadow-lg p-3 sm:p-4 w-40 sm:w-48 hidden lg:block"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-green-100 flex items-center justify-center">
-                    <CheckCircle2 className="w-4 sm:w-5 h-4 sm:h-5 text-green-600" />
-                  </div>
-                  <div>
-                    <div className="text-xs text-gray-500">Response Rate</div>
-                    <div className="text-base sm:text-lg font-bold">98%</div>
-                  </div>
-                </div>
-              </motion.div> */}
-
-              {/* <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1.8, duration: 0.6 }}
-                className="absolute -right-4 sm:-right-8 -[100px] sm:bottom-32 bg-white rounded-xl shadow-lg p-3 sm:p-4 w-40 sm:w-48 hidden lg:block"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-cyan-100 flex items-center justify-center">
-                    <Heart className="w-4 sm:w-5 h-4 sm:h-5 text-cyan-600" />
-                  </div>
-                  <div>
-                    <div className="text-xs text-gray-500">Patient Satisfaction</div>
-                    <div className="text-base sm:text-lg font-bold">4.9/5</div>
-                  </div>
-                </div>
-              </motion.div> */}
             </motion.div>
-
-             {/* Animated Chat Bubbles - Left side */}
-            
           </motion.div>
+
         </div>
       </div>
     </section>
   );
 };
-
 // Specialty Focus Section
 const SpecialtySection = () => {
   const ref = useRef(null);
