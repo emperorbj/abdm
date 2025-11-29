@@ -1,85 +1,118 @@
 "use client"
 
+import { useState } from "react"
 import { cn } from "@/lib/utils"
-import { AnimatedList } from "@/components/magic/animated-list"
-import { CheckCircle2 } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
+import { CheckCircle2, Baby, Heart, Sparkles, Smile, Activity } from "lucide-react"
 
 interface Item {
   name: string
-  description?: string
   icon: React.ReactNode
   color: string
-  time?: string
+  hoverBg: string
+  link: string
 }
 
-let notifications = [
-  {
-    name: "Pregnancy Care",
-    // description: "Magic UI",
-    // time: "15m ago",
-
-    icon: <CheckCircle2/>,
-    color: "#FFFFFF",
-  },
-  {
-    name: "Fertility",
-    // description: "Magic UI",
-    // time: "10m ago",
-    icon: <CheckCircle2/>,
-    color: "#FFFFFF",
-  },
+const specialties = [
   {
     name: "Dermatology",
-    // description: "Magic UI",
-    // time: "5m ago",
-    icon: <CheckCircle2/>,
-    color: "#FFFFFF",
+    icon: <Sparkles className="w-4 h-4" />,
+    color: "#10B981",
+    hoverBg: "bg-emerald-500/20",
+    link: "/specialty/dermatology",
   },
   {
     name: "Dentistry",
-    // description: "Magic UI",
-    // time: "2m ago",
-    icon: <CheckCircle2/>,
-    color: "#FFFFFF",
+    icon: <Smile className="w-4 h-4" />,
+    color: "#3B82F6",
+    hoverBg: "bg-blue-500/20",
+    link: "/specialties/dentistry",
+  },
+  {
+    name: "Diabetology",
+    icon: <Activity className="w-4 h-4" />,
+    color: "#F59E0B",
+    hoverBg: "bg-amber-500/20",
+    link: "/specialties/diabetology",
+  },
+  {
+    name: "Pediatrics",
+    icon: <Baby className="w-4 h-4" />,
+    color: "#EF4444",
+    hoverBg: "bg-red-500/20",
+    link: "/specialties/pediatrics",
+  },
+  {
+    name: "Pregnancy Care",
+    icon: <Baby className="w-4 h-4" />,
+    color: "#EC4899",
+    hoverBg: "bg-pink-500/20",
+    link: "/specialty/obstetrics",
+  },
+  {
+    name: "Fertility",
+    icon: <Heart className="w-4 h-4" />,
+    color: "#8B5CF6",
+    hoverBg: "bg-purple-500/20",
+    link: "/specialties/fertility",
   },
 ]
 
-notifications = Array.from({ length: 10 }, () => notifications).flat()
+const SpecialtyBadge = ({ name, icon, color, hoverBg, link }: Item) => {
+  const [isHovered, setIsHovered] = useState(false)
 
-const Notification = ({ name, description, icon, color, time }: Item) => {
   return (
-    <figure
-      className={cn(
-        "relative mx-auto min-h-fit w-full max-w-[400px] cursor-pointer overflow-hidden rounded-2xl p-4",
-        // animation styles
-        "transition-all duration-200 ease-in-out hover:scale-[103%]",
-        // light styles
-        "bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]",
-        // dark styles
-        "transform-gpu dark:bg-transparent dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] dark:backdrop-blur-md dark:[border:1px_solid_rgba(255,255,255,.1)]"
-      )}
+    <a
+      href={link}
+      className="inline-block"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="flex flex-row items-center gap-3">
+      <Badge
+        className={cn(
+          "relative px-4 py-2.5 text-sm font-medium cursor-pointer transition-all duration-300 ease-out",
+          "border-2 backdrop-blur-sm flex items-center justify-start gap-2",
+          "hover:scale-105 hover:shadow-lg",
+          isHovered ? hoverBg : "bg-gray-100 dark:bg-gray-800/50",
+          "text-gray-800 dark:text-gray-200"
+        )}
+        style={{
+          borderColor: isHovered ? color : "rgba(0,0,0,0.15)",
+        }}
+      >
         <div
-          className="flex size-10 items-center justify-center rounded-2xl"
-          style={{
-            backgroundColor: color,
-          }}
+          className="transition-colors duration-300 flex-shrink-0"
+          style={{ color: isHovered ? color : "#374151" }}
         >
-          <span className="text-lg">{icon}</span>
+          {icon}
         </div>
-        <div className="flex flex-col overflow-hidden">
-          <figcaption className="flex flex-row items-center text-lg font-medium whitespace-pre dark:text-white">
-            <span className="text-sm sm:text-lg">{name}</span>
-            <span className="mx-1">·</span>
-            <span className="text-xs text-gray-500">{time}</span>
-          </figcaption>
-          <p className="text-sm font-normal dark:text-white/60">
-            {description}
-          </p>
-        </div>
-      </div>
-    </figure>
+        <span
+          className="transition-colors duration-300 font-medium whitespace-nowrap"
+          style={{ color: isHovered ? color : "#374151" }}
+        >
+          {name}
+        </span>
+        <CheckCircle2
+          className={cn(
+            "w-4 h-4 transition-all duration-300 flex-shrink-0",
+            isHovered ? "opacity-100 scale-100" : "opacity-0 scale-0"
+          )}
+          style={{ color: color }}
+        />
+        
+        {/* Glassmorphism overlay effect */}
+        <div
+          className={cn(
+            "absolute inset-0 rounded-md transition-opacity duration-300 pointer-events-none",
+            isHovered ? "opacity-100" : "opacity-0"
+          )}
+          style={{
+            background: `linear-gradient(135deg, ${color}15, ${color}05)`,
+            backdropFilter: "blur(8px)",
+          }}
+        />
+      </Badge>
+    </a>
   )
 }
 
@@ -91,17 +124,19 @@ export function AnimatedListDemo({
   return (
     <div
       className={cn(
-        "relative flex h-[400px] w-full flex-col overflow-hidden p-2",
+        "relative w-full overflow-hidden bg-transparent p-6",
         className
       )}
     >
-      <AnimatedList>
-        {notifications.map((item, idx) => (
-          <Notification {...item} key={idx} />
+      <h2 className="text-2xl font-bold mb-3 text-center text-gray-800 dark:text-gray-900">
+        Our Specialties
+      </h2>
+      
+      <div className="flex flex-wrap justify-center gap-3">
+        {specialties.map((item, idx) => (
+          <SpecialtyBadge {...item} key={idx} />
         ))}
-      </AnimatedList>
-
-      <div className="from-background pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t"></div>
+      </div>
     </div>
   )
 }

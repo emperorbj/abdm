@@ -1,0 +1,874 @@
+// import React from 'react';
+// import { 
+//   PlayCircle, Users, Zap, Infinity, Heart, CheckCircle, Microscope, Check,
+//   CalendarHeart, Baby, Activity, Briefcase, Smile, Layers, LayoutDashboard,
+//   Smartphone, ArrowLeft, Bot, MapPin
+// } from 'lucide-react';
+
+// export default function ObstetricsLanding() {
+//   return (
+//     <div className="bg-white text-slate-600 antialiased selection:bg-purple-100 selection:text-purple-900">
+//       {/* Navigation */}
+//       <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+//         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+//           <div className="text-slate-900 tracking-tighter text-lg font-medium">
+//             OBSTETRICS<span className="text-slate-400">.AI</span>
+//           </div>
+//           <a href="#" className="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors">Login</a>
+//         </div>
+//       </nav>
+
+//       {/* Hero Section */}
+//       <section className="pt-32 pb-20 overflow-hidden">
+//         <div className="max-w-6xl mx-auto px-6 text-center">
+//           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 border border-purple-100 text-purple-700 text-xs font-medium mb-8">
+//             <span className="relative flex h-2 w-2">
+//               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+//               <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
+//             </span>
+//             Now available for pilot clinics
+//           </div>
+          
+//           <h1 className="text-5xl md:text-7xl font-semibold text-slate-900 tracking-tight mb-6 leading-[1.1]">
+//             Support every woman from<br className="hidden md:block" /> fertility to post delivery, on <span className="text-green-600">WhatsApp</span>.
+//           </h1>
+          
+//           <p className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto mb-10 font-normal leading-relaxed">
+//             An AI assistant that guides patients through their entire journey and drastically reduces clinic workload.
+//           </p>
+
+//           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-20">
+//             <button className="px-8 py-3 bg-slate-900 text-white rounded-full text-sm font-medium hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl ring-offset-2 focus:ring-2 ring-slate-900">
+//               Book a pilot
+//             </button>
+//             <button className="flex items-center gap-2 px-8 py-3 bg-white text-slate-600 border border-slate-200 rounded-full text-sm font-medium hover:border-slate-300 hover:bg-slate-50 transition-all">
+//               <PlayCircle className="w-4 h-4" />
+//               Watch demo
+//             </button>
+//           </div>
+
+//           {/* Phone Mockup */}
+//           <div className="relative mx-auto w-[300px] h-[600px] bg-slate-900 rounded-[3rem] shadow-2xl border-[8px] border-slate-900 overflow-hidden ring-1 ring-slate-900/10">
+//             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-slate-900 rounded-b-xl z-20"></div>
+//             <div className="bg-slate-50 w-full h-full flex flex-col pt-12 pb-4 overflow-hidden relative">
+//               <div className="bg-[#075E54] h-16 w-full flex items-center px-4 gap-3 text-white absolute top-0 z-10">
+//                 <ArrowLeft className="w-5 h-5" />
+//                 <div className="flex items-center gap-2">
+//                   <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+//                     <Bot className="w-5 h-5 text-white" />
+//                   </div>
+//                   <div>
+//                     <div className="text-sm font-medium leading-none">Clinic Assistant</div>
+//                     <div className="text-[10px] opacity-80 mt-0.5">Online</div>
+//                   </div>
+//                 </div>
+//               </div>
+              
+//               <div className="flex-1 p-4 space-y-4 overflow-y-auto mt-16 bg-[#e5ddd5]">
+//                 <div className="flex justify-start">
+//                   <div className="bg-white rounded-lg rounded-tl-none p-3 shadow-sm max-w-[85%] text-xs text-slate-800 leading-relaxed relative">
+//                     Hi Sarah! 👋 It&apos;s week 12. Have you scheduled your NT scan yet?
+//                     <span className="block text-[9px] text-slate-400 text-right mt-1">09:41</span>
+//                   </div>
+//                 </div>
+                
+//                 <div className="flex justify-end">
+//                   <div className="bg-[#dcf8c6] rounded-lg rounded-tr-none p-3 shadow-sm max-w-[85%] text-xs text-slate-800 leading-relaxed">
+//                     Not yet. Is it urgent?
+//                     <span className="block text-[9px] text-slate-500 text-right mt-1">09:42</span>
+//                   </div>
+//                 </div>
+
+//                 <div className="flex justify-start">
+//                   <div className="bg-white rounded-lg rounded-tl-none p-3 shadow-sm max-w-[85%] text-xs text-slate-800 leading-relaxed">
+//                     Ideally, it should be done between 11 and 13 weeks + 6 days. I can send you a list of recommended centers nearby?
+//                     <span className="block text-[9px] text-slate-400 text-right mt-1">09:42</span>
+//                   </div>
+//                 </div>
+
+//                 <div className="flex justify-end">
+//                   <div className="bg-[#dcf8c6] rounded-lg rounded-tr-none p-3 shadow-sm max-w-[85%] text-xs text-slate-800 leading-relaxed">
+//                     Yes please!
+//                     <span className="block text-[9px] text-slate-500 text-right mt-1">09:43</span>
+//                   </div>
+//                 </div>
+
+//                 <div className="flex justify-start">
+//                   <div className="bg-white rounded-lg rounded-tl-none p-3 shadow-sm max-w-[85%] text-xs text-slate-800 leading-relaxed">
+//                     <div className="flex items-center gap-2 mb-2 pb-2 border-b border-slate-100">
+//                       <MapPin className="w-3 h-3 text-red-500" />
+//                       <span className="font-semibold text-slate-900">City Scan Center</span>
+//                     </div>
+//                     Here is the top rated center. Would you like me to remind you again on Monday?
+//                     <span className="block text-[9px] text-slate-400 text-right mt-1">09:43</span>
+//                   </div>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Value Props */}
+//       <section className="py-20 border-y border-slate-100 bg-slate-50/50">
+//         <div className="max-w-6xl mx-auto px-6">
+//           <div className="grid grid-cols-2 md:grid-cols-5 gap-8 text-center">
+//             {[
+//               { icon: Users, text: 'Higher Quality Patients', color: 'text-indigo-600' },
+//               { icon: Zap, text: 'Lower Workload', color: 'text-amber-500' },
+//               { icon: Infinity, text: 'Better Continuity', color: 'text-blue-500' },
+//               { icon: Heart, text: 'Higher Satisfaction', color: 'text-rose-500' },
+//               { icon: CheckCircle, text: 'Zero Setup', color: 'text-emerald-500' }
+//             ].map((item, i) => (
+//               <div key={i} className="flex flex-col items-center gap-3 group">
+//                 <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200 flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-300">
+//                   <item.icon className={`w-6 h-6 ${item.color}`} />
+//                 </div>
+//                 <p className="text-sm font-medium text-slate-700">{item.text}</p>
+//               </div>
+//             ))}
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Timeline Header */}
+//       <section className="pt-24 pb-12">
+//         <div className="max-w-6xl mx-auto px-6 text-center">
+//           <h2 className="text-3xl font-semibold text-slate-900 tracking-tight mb-16">End-to-End Obstetrics Journey</h2>
+          
+//           <div className="hidden md:flex justify-between items-center relative max-w-4xl mx-auto">
+//             <div className="absolute top-1/2 left-0 w-full h-0.5 bg-slate-200 -z-10 transform -translate-y-1/2"></div>
+            
+//             {['Infertility', 'Pre-Pregnancy', 'Pregnancy', 'Delivery', 'Post-Delivery'].map((stage, i) => (
+//               <div key={i} className="flex flex-col items-center gap-4 bg-white px-2">
+//                 <div className={`${i === 0 ? 'w-4 h-4' : 'w-3 h-3'} rounded-full ${i === 0 ? 'bg-slate-900' : 'bg-slate-300'} ring-4 ring-white`}></div>
+//                 <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">{stage}</span>
+//               </div>
+//             ))}
+//           </div>
+
+//           <div className="md:hidden flex flex-col gap-4 items-start pl-8 border-l border-slate-200 ml-4">
+//             {['Infertility', 'Pre-Pregnancy', 'Pregnancy', 'Delivery', 'Post-Delivery'].map((stage, i) => (
+//               <span key={i} className={`text-xs font-semibold uppercase tracking-wider ${i === 0 ? 'text-slate-900' : 'text-slate-400'}`}>{stage}</span>
+//             ))}
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Infertility Section */}
+//       <section className="py-20">
+//         <div className="max-w-6xl mx-auto px-6">
+//           <div className="grid md:grid-cols-2 gap-16 items-center">
+//             <div>
+//               <div className="w-10 h-10 rounded-lg bg-indigo-50 flex items-center justify-center mb-6">
+//                 <Microscope className="w-5 h-5 text-indigo-600" />
+//               </div>
+//               <h3 className="text-2xl font-semibold text-slate-900 tracking-tight mb-4">Infertility Support</h3>
+//               <p className="text-slate-500 mb-8 leading-relaxed">Early intervention and education to guide patients through complex treatment options.</p>
+//               <ul className="space-y-4">
+//                 {['Smart patient intake & history collection', 'Simplified treatment explanations', 'Automated scan and test nudges', 'Red flag escalation to clinic staff'].map((item, i) => (
+//                   <li key={i} className="flex items-start gap-3">
+//                     <Check className="w-5 h-5 text-indigo-600 shrink-0 mt-0.5" />
+//                     <span className="text-sm text-slate-600">{item}</span>
+//                   </li>
+//                 ))}
+//               </ul>
+//             </div>
+//             <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200 aspect-square md:aspect-auto md:h-[400px] flex items-center justify-center relative overflow-hidden">
+//               <div className="absolute inset-0 bg-[radial-gradient(#e0e7ff_1px,transparent_1px)] [background-size:16px_16px] opacity-50"></div>
+//               <div className="bg-white rounded-xl shadow-lg border border-slate-100 p-6 w-64 relative z-10">
+//                 <div className="flex justify-between items-center mb-6">
+//                   <div className="text-sm font-semibold text-slate-900">Cycle Tracker</div>
+//                   <div className="w-2 h-2 rounded-full bg-green-500"></div>
+//                 </div>
+//                 <div className="flex justify-between mb-4">
+//                   {['Mon', 'Tue', 'Wed', 'Thu', 'Fri'].map((day, i) => (
+//                     <div key={i} className={`flex flex-col items-center gap-1 ${i !== 2 ? 'opacity-40' : ''}`}>
+//                       <span className={`text-[10px] ${i === 2 ? 'font-medium text-indigo-600' : ''}`}>{day}</span>
+//                       <div className={`w-6 h-6 rounded-full ${i === 2 ? 'bg-indigo-600 text-white flex items-center justify-center text-[10px]' : 'bg-slate-100'}`}>
+//                         {i === 2 && '14'}
+//                       </div>
+//                     </div>
+//                   ))}
+//                 </div>
+//                 <div className="space-y-2">
+//                   <div className="h-2 w-full bg-slate-100 rounded-full"></div>
+//                   <div className="h-2 w-3/4 bg-slate-100 rounded-full"></div>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Pre Pregnancy Section */}
+//       <section className="py-20 bg-slate-50/50">
+//         <div className="max-w-6xl mx-auto px-6">
+//           <div className="grid md:grid-cols-2 gap-16 items-center">
+//             <div className="order-2 md:order-1 bg-white rounded-2xl p-8 border border-slate-200 aspect-square md:aspect-auto md:h-[400px] flex items-center justify-center relative overflow-hidden">
+//               <div className="w-64 space-y-3 relative z-10">
+//                 {[{ w: 'w-24', opacity: '' }, { w: 'w-32', opacity: 'opacity-70' }, { w: 'w-20', opacity: 'opacity-50' }].map((item, i) => (
+//                   <div key={i} className={`bg-white p-4 rounded-lg ${i === 0 ? 'shadow-md' : 'shadow-sm'} border border-slate-100 flex items-center gap-3 ${item.opacity}`}>
+//                     <div className={`w-5 h-5 rounded border-2 ${i === 0 ? 'border-green-500 bg-green-500 flex items-center justify-center' : 'border-slate-300'}`}>
+//                       {i === 0 && <Check className="w-3 h-3 text-white" />}
+//                     </div>
+//                     <div className={`${item.w} h-2 bg-slate-200 rounded-full`}></div>
+//                   </div>
+//                 ))}
+//               </div>
+//             </div>
+//             <div className="order-1 md:order-2">
+//               <div className="w-10 h-10 rounded-lg bg-pink-50 flex items-center justify-center mb-6">
+//                 <CalendarHeart className="w-5 h-5 text-pink-600" />
+//               </div>
+//               <h3 className="text-2xl font-semibold text-slate-900 tracking-tight mb-4">Pre-Pregnancy Planning</h3>
+//               <p className="text-slate-500 mb-8 leading-relaxed">Ensuring the body is ready for a healthy pregnancy journey.</p>
+//               <ul className="space-y-4">
+//                 {['Comprehensive risk assessment', 'Intelligent checklists and reminders', 'Report summarisation for doctors'].map((item, i) => (
+//                   <li key={i} className="flex items-start gap-3">
+//                     <Check className="w-5 h-5 text-pink-600 shrink-0 mt-0.5" />
+//                     <span className="text-sm text-slate-600">{item}</span>
+//                   </li>
+//                 ))}
+//               </ul>
+//             </div>
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Pregnancy Section */}
+//       <section className="py-20">
+//         <div className="max-w-6xl mx-auto px-6">
+//           <div className="grid md:grid-cols-2 gap-16 items-center">
+//             <div>
+//               <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-6">
+//                 <Baby className="w-5 h-5 text-emerald-600" />
+//               </div>
+//               <h3 className="text-2xl font-semibold text-slate-900 tracking-tight mb-4">Pregnancy Care</h3>
+//               <p className="text-slate-500 mb-8 leading-relaxed">24/7 support throughout all three trimesters, reducing anxiety and unnecessary visits.</p>
+//               <ul className="space-y-4">
+//                 {['First trimester dietary & lifestyle guidance', 'Second trimester anomaly scan checks', 'Third trimester delivery preparation', 'Medically safe WhatsApp responses'].map((item, i) => (
+//                   <li key={i} className="flex items-start gap-3">
+//                     <Check className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+//                     <span className="text-sm text-slate-600">{item}</span>
+//                   </li>
+//                 ))}
+//               </ul>
+//             </div>
+//             <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200 aspect-square md:aspect-auto md:h-[400px] flex items-center justify-center relative overflow-hidden">
+//               <div className="flex gap-4 items-end h-32">
+//                 <div className="w-16 h-12 bg-emerald-200 rounded-t-lg opacity-40"></div>
+//                 <div className="w-16 h-20 bg-emerald-300 rounded-t-lg opacity-60"></div>
+//                 <div className="w-16 h-32 bg-emerald-500 rounded-t-lg shadow-lg relative">
+//                   <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-white px-3 py-1 rounded-full shadow-sm text-[10px] font-semibold text-emerald-700 whitespace-nowrap">Week 36</div>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Delivery Section */}
+//       <section className="py-20 bg-slate-50/50">
+//         <div className="max-w-6xl mx-auto px-6">
+//           <div className="grid md:grid-cols-2 gap-16 items-center">
+//             <div className="order-2 md:order-1 bg-white rounded-2xl p-8 border border-slate-200 aspect-square md:aspect-auto md:h-[400px] flex items-center justify-center relative overflow-hidden">
+//               <div className="w-48 h-32 border-2 border-slate-200 rounded-xl relative flex items-center justify-center">
+//                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white px-2">
+//                   <Briefcase className="w-6 h-6 text-slate-400" />
+//                 </div>
+//                 <div className="space-y-2 w-full px-6">
+//                   <div className="h-2 bg-slate-100 rounded-full w-full"></div>
+//                   <div className="h-2 bg-slate-100 rounded-full w-2/3"></div>
+//                 </div>
+//               </div>
+//             </div>
+//             <div className="order-1 md:order-2">
+//               <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center mb-6">
+//                 <Activity className="w-5 h-5 text-blue-600" />
+//               </div>
+//               <h3 className="text-2xl font-semibold text-slate-900 tracking-tight mb-4">Delivery Readiness</h3>
+//               <p className="text-slate-500 mb-8 leading-relaxed">Streamlining the admission process and keeping families informed.</p>
+//               <ul className="space-y-4">
+//                 {['Precise due-date alerts', 'Digital admission checklist', 'Automated family update flow', 'One-page history summary for doctors'].map((item, i) => (
+//                   <li key={i} className="flex items-start gap-3">
+//                     <Check className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
+//                     <span className="text-sm text-slate-600">{item}</span>
+//                   </li>
+//                 ))}
+//               </ul>
+//             </div>
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Post Delivery Section */}
+//       <section className="py-20">
+//         <div className="max-w-6xl mx-auto px-6">
+//           <div className="grid md:grid-cols-2 gap-16 items-center">
+//             <div>
+//               <div className="w-10 h-10 rounded-lg bg-orange-50 flex items-center justify-center mb-6">
+//                 <Smile className="w-5 h-5 text-orange-600" />
+//               </div>
+//               <h3 className="text-2xl font-semibold text-slate-900 tracking-tight mb-4">Post-Partum & Newborn</h3>
+//               <p className="text-slate-500 mb-8 leading-relaxed">Support doesn&apos;t stop at birth. We guide mothers through recovery and newborn care.</p>
+//               <ul className="space-y-4">
+//                 {['Recovery care & symptom checking', 'Mental health check-ins', 'Breastfeeding & nutrition guidance', 'Vaccination reminders'].map((item, i) => (
+//                   <li key={i} className="flex items-start gap-3">
+//                     <Check className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
+//                     <span className="text-sm text-slate-600">{item}</span>
+//                   </li>
+//                 ))}
+//               </ul>
+//             </div>
+//             <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200 aspect-square md:aspect-auto md:h-[400px] flex items-center justify-center relative overflow-hidden">
+//               <div className="relative">
+//                 <div className="w-32 h-32 rounded-full border-4 border-white bg-orange-100 shadow-sm relative z-0"></div>
+//                 <div className="w-20 h-20 rounded-full border-4 border-white bg-orange-200 shadow-md absolute -bottom-2 -right-4 z-10 flex items-center justify-center">
+//                   <Heart className="w-8 h-8 text-white fill-current" />
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Clinic Benefits */}
+//       <section className="py-24 bg-slate-900 text-white">
+//         <div className="max-w-6xl mx-auto px-6">
+//           <div className="grid md:grid-cols-2 gap-16 items-center">
+//             <div>
+//               <h2 className="text-3xl font-semibold tracking-tight mb-6">What Your Clinic Gets</h2>
+//               <div className="space-y-6">
+//                 {[
+//                   { icon: Layers, title: 'Full Journey Support', desc: 'From the first visit to the last vaccination, the system handles routine queries.' },
+//                   { icon: LayoutDashboard, title: 'Doctor Dashboard', desc: 'A centralized view of high-risk patients and summaries, accessible anywhere.' },
+//                   { icon: Smartphone, title: 'No Apps Required', desc: 'Patients use WhatsApp. Clinics use a web link. No installation friction.' }
+//                 ].map((item, i) => (
+//                   <div key={i} className="flex gap-4">
+//                     <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+//                       <item.icon className="w-5 h-5 text-white" />
+//                     </div>
+//                     <div>
+//                       <h4 className="text-lg font-medium mb-1">{item.title}</h4>
+//                       <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+//                     </div>
+//                   </div>
+//                 ))}
+//               </div>
+//             </div>
+//             <div className="bg-slate-800 rounded-xl border border-slate-700 p-6 shadow-2xl">
+//               <div className="space-y-4">
+//                 <div className="flex justify-between items-center pb-4 border-b border-slate-700">
+//                   <div className="w-24 h-4 bg-slate-600 rounded"></div>
+//                   <div className="w-8 h-8 rounded-full bg-slate-600"></div>
+//                 </div>
+//                 <div className="grid grid-cols-3 gap-3">
+//                   {[1, 2, 3].map(i => (
+//                     <div key={i} className="h-20 bg-slate-700/50 rounded-lg border border-slate-700"></div>
+//                   ))}
+//                 </div>
+//                 <div className="h-32 bg-slate-700/30 rounded-lg border border-slate-700"></div>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Pricing */}
+//       <section className="py-24 text-center">
+//         <div className="max-w-2xl mx-auto px-6">
+//           <h2 className="text-3xl font-semibold text-slate-900 tracking-tight mb-4">Transparent Pricing</h2>
+//           <p className="text-slate-500 mb-10">We believe high quality care should be accessible to everyone.</p>
+          
+//           <div className="inline-block p-8 rounded-2xl bg-white border border-slate-200 shadow-xl relative overflow-hidden">
+//             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-indigo-500"></div>
+//             <div className="text-5xl font-bold text-slate-900 mb-2">Free</div>
+//             <div className="text-sm font-medium text-slate-500 mb-6">For Doctors & Patients</div>
+//             <p className="text-xs text-slate-400 max-w-xs mx-auto">
+//               Our revenue model relies solely on ethical, curated partner sponsorships displayed discreetly on the doctor dashboard.
+//             </p>
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Final CTA */}
+//       <section className="py-32 bg-slate-50 relative overflow-hidden">
+//         <div className="absolute inset-0 bg-[radial-gradient(#e0e7ff_1px,transparent_1px)] [background-size:24px_24px] opacity-30"></div>
+//         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+//           <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 tracking-tight mb-8">Transform your maternity<br /> care experience.</h2>
+//           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+//             <button className="px-8 py-4 bg-slate-900 text-white rounded-full text-base font-medium hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl ring-offset-2 focus:ring-2 ring-slate-900">
+//               Start your pilot today
+//             </button>
+//           </div>
+          
+//           <div className="mt-16 flex justify-center -space-x-4">
+//             {['https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=100&h=100&fit=crop',
+//               'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop',
+//               'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop'].map((src, i) => (
+//               <div key={i} className="w-12 h-12 rounded-full border-4 border-slate-50 bg-gray-300 overflow-hidden">
+//                 <img src={src} alt="User" className="w-full h-full object-cover" />
+//               </div>
+//             ))}
+//             <div className="w-12 h-12 rounded-full border-4 border-slate-50 bg-slate-200 flex items-center justify-center text-[10px] font-bold text-slate-600">
+//               +2k
+//             </div>
+//           </div>
+//           <p className="text-sm text-slate-500 mt-4">Join 2,000+ mothers and doctors</p>
+//         </div>
+//       </section>
+
+//       {/* Footer */}
+//       <footer className="py-8 bg-white border-t border-slate-100">
+//         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs text-slate-400">
+//           <div>© 2024 Obstetrics AI. All rights reserved.</div>
+//           <div className="flex gap-6 mt-4 md:mt-0">
+//             {['Privacy', 'Terms', 'Contact'].map(link => (
+//               <a key={link} href="#" className="hover:text-slate-600">{link}</a>
+//             ))}
+//           </div>
+//         </div>
+//       </footer>
+//     </div>
+//   );
+// }
+
+
+// app/specialty/obstetrics/page.tsx
+'use client'
+
+import React from 'react';
+import { 
+  PlayCircle, Users, Zap, Infinity, Heart, CheckCircle, Microscope, Check,
+  CalendarHeart, Baby, Activity, Briefcase, Smile, Layers, LayoutDashboard,
+  Smartphone, ArrowLeft, Bot, MapPin
+} from 'lucide-react';
+
+export default function ObstetricsLanding() {
+  return (
+    <div className="bg-white text-slate-600 antialiased selection:bg-purple-100 selection:text-purple-900">
+      {/* Hero Section */}
+      <section className="pt-24 pb-12 overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 border border-purple-100 text-purple-700 text-xs font-medium">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
+                </span>
+                Now available for pilot clinics
+              </div>
+              
+              <h1 className="text-4xl md:text-6xl font-semibold text-slate-900 tracking-tight leading-[1.1]">
+                Support every woman from fertility to post delivery, on <span className="text-green-600">WhatsApp</span>.
+              </h1>
+              
+              <p className="text-lg text-slate-500 leading-relaxed">
+                An AI assistant that guides patients through their entire journey and drastically reduces clinic workload.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button className="px-8 py-3 bg-slate-900 text-white rounded-full text-sm font-medium hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl">
+                  Book a pilot
+                </button>
+                <button className="flex items-center gap-2 px-8 py-3 bg-white text-slate-600 border border-slate-200 rounded-full text-sm font-medium hover:border-slate-300 hover:bg-slate-50 transition-all">
+                  <PlayCircle className="w-4 h-4" />
+                  Watch demo
+                </button>
+              </div>
+            </div>
+
+            {/* Right - Phone Mockup */}
+            <div className="relative mx-auto w-[300px] h-[600px] bg-slate-900 rounded-[3rem] shadow-2xl border-[8px] border-slate-900 overflow-hidden ring-1 ring-slate-900/10">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-slate-900 rounded-b-xl z-20"></div>
+              <div className="bg-slate-50 w-full h-full flex flex-col pt-12 pb-4 overflow-hidden relative">
+                <div className="bg-[#075E54] h-16 w-full flex items-center px-4 gap-3 text-white absolute top-0 z-10">
+                  <ArrowLeft className="w-5 h-5" />
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+                      <Bot className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <div className="text-sm font-medium leading-none">Clinic Assistant</div>
+                      <div className="text-[10px] opacity-80 mt-0.5">Online</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="flex-1 p-4 space-y-4 overflow-y-auto mt-16 bg-[#e5ddd5]">
+                  <div className="flex justify-start">
+                    <div className="bg-white rounded-lg rounded-tl-none p-3 shadow-sm max-w-[85%] text-xs text-slate-800 leading-relaxed">
+                      Hi Sarah! 👋 It&apos;s week 12. Have you scheduled your NT scan yet?
+                      <span className="block text-[9px] text-slate-400 text-right mt-1">09:41</span>
+                    </div>
+                  </div>
+                  
+                  <div className="flex justify-end">
+                    <div className="bg-[#dcf8c6] rounded-lg rounded-tr-none p-3 shadow-sm max-w-[85%] text-xs text-slate-800 leading-relaxed">
+                      Not yet. Is it urgent?
+                      <span className="block text-[9px] text-slate-500 text-right mt-1">09:42</span>
+                    </div>
+                  </div>
+
+                  <div className="flex justify-start">
+                    <div className="bg-white rounded-lg rounded-tl-none p-3 shadow-sm max-w-[85%] text-xs text-slate-800 leading-relaxed">
+                      Ideally, it should be done between 11 and 13 weeks + 6 days. I can send you a list of recommended centers nearby?
+                      <span className="block text-[9px] text-slate-400 text-right mt-1">09:42</span>
+                    </div>
+                  </div>
+
+                  <div className="flex justify-end">
+                    <div className="bg-[#dcf8c6] rounded-lg rounded-tr-none p-3 shadow-sm max-w-[85%] text-xs text-slate-800 leading-relaxed">
+                      Yes please!
+                      <span className="block text-[9px] text-slate-500 text-right mt-1">09:43</span>
+                    </div>
+                  </div>
+
+                  <div className="flex justify-start">
+                    <div className="bg-white rounded-lg rounded-tl-none p-3 shadow-sm max-w-[85%] text-xs text-slate-800 leading-relaxed">
+                      <div className="flex items-center gap-2 mb-2 pb-2 border-b border-slate-100">
+                        <MapPin className="w-3 h-3 text-red-500" />
+                        <span className="font-semibold text-slate-900">City Scan Center</span>
+                      </div>
+                      Here is the top rated center. Would you like me to remind you again on Monday?
+                      <span className="block text-[9px] text-slate-400 text-right mt-1">09:43</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Value Props */}
+      <section className="py-12 border-y border-slate-100 bg-slate-50/50">
+
+        <div className="max-w-6xl mx-auto px-6">
+                      <h2 className="text-3xl font-semibold text-slate-900 tracking-tight text-center mb-8">Why Clinics Use This</h2>
+
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 text-center">
+            {[
+              { icon: Users, text: 'Higher Quality Patients', color: 'text-indigo-600' },
+              { icon: Zap, text: 'Lower Workload', color: 'text-amber-500' },
+              { icon: Infinity, text: 'Better Continuity', color: 'text-blue-500' },
+              { icon: Heart, text: 'Higher Satisfaction', color: 'text-rose-500' },
+              { icon: CheckCircle, text: 'Zero Setup', color: 'text-emerald-500' }
+            ].map((item, i) => (
+              <div key={i} className="flex flex-col items-center gap-3 group">
+                <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200 flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-300">
+                  <item.icon className={`w-6 h-6 ${item.color}`} />
+                </div>
+                <p className="text-sm font-medium text-slate-700">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Timeline Header */}
+      <section className="py-16">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <h2 className="text-3xl font-semibold text-slate-900 tracking-tight mb-12">End-to-End Obstetrics Journey</h2>
+          
+          <div className="hidden md:flex justify-between items-center relative max-w-4xl mx-auto">
+            <div className="absolute top-1/2 left-0 w-full h-0.5 bg-slate-200 -z-10 transform -translate-y-1/2"></div>
+            
+            {['Infertility', 'Pre-Pregnancy', 'Pregnancy', 'Delivery', 'Post-Delivery'].map((stage, i) => (
+              <div key={i} className="flex flex-col items-center gap-4 bg-white px-2">
+                <div className={`${i === 0 ? 'w-4 h-4' : 'w-3 h-3'} rounded-full ${i === 0 ? 'bg-slate-900' : 'bg-slate-300'} ring-4 ring-white`}></div>
+                <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">{stage}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="md:hidden flex flex-col gap-4 items-start pl-8 border-l border-slate-200 ml-4">
+            {['Infertility', 'Pre-Pregnancy', 'Pregnancy', 'Delivery', 'Post-Delivery'].map((stage, i) => (
+              <span key={i} className={`text-xs font-semibold uppercase tracking-wider ${i === 0 ? 'text-slate-900' : 'text-slate-400'}`}>{stage}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Journey Sections */}
+      {/* Infertility */}
+      <section className="py-12">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="w-10 h-10 rounded-lg bg-indigo-50 flex items-center justify-center mb-4">
+                <Microscope className="w-5 h-5 text-indigo-600" />
+              </div>
+              <h3 className="text-2xl font-semibold text-slate-900 tracking-tight mb-3">Infertility Support</h3>
+              <p className="text-slate-500 mb-6 leading-relaxed">Early intervention and education to guide patients through complex treatment options.</p>
+              <ul className="space-y-3">
+                {['Smart patient intake & history collection', 'Simplified treatment explanations', 'Automated scan and test nudges', 'Red flag escalation to clinic staff'].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-indigo-600 shrink-0 mt-0.5" />
+                    <span className="text-sm text-slate-600">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200 h-[300px] flex items-center justify-center relative overflow-hidden">
+              <div className="absolute inset-0 bg-[radial-gradient(#e0e7ff_1px,transparent_1px)] [background-size:16px_16px] opacity-50"></div>
+              <div className="bg-white rounded-xl shadow-lg border border-slate-100 p-6 w-64 relative z-10">
+                <div className="flex justify-between items-center mb-4">
+                  <div className="text-sm font-semibold text-slate-900">Cycle Tracker</div>
+                  <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                </div>
+                <div className="flex justify-between mb-4">
+                  {['Mon', 'Tue', 'Wed', 'Thu', 'Fri'].map((day, i) => (
+                    <div key={i} className={`flex flex-col items-center gap-1 ${i !== 2 ? 'opacity-40' : ''}`}>
+                      <span className={`text-[10px] ${i === 2 ? 'font-medium text-indigo-600' : ''}`}>{day}</span>
+                      <div className={`w-6 h-6 rounded-full ${i === 2 ? 'bg-indigo-600 text-white flex items-center justify-center text-[10px]' : 'bg-slate-100'}`}>
+                        {i === 2 && '14'}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="space-y-2">
+                  <div className="h-2 w-full bg-slate-100 rounded-full"></div>
+                  <div className="h-2 w-3/4 bg-slate-100 rounded-full"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pre Pregnancy */}
+      <section className="py-12 bg-slate-50/50">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="order-2 md:order-1 bg-white rounded-2xl p-8 border border-slate-200 h-[300px] flex items-center justify-center">
+              <div className="w-64 space-y-3 relative z-10">
+                {[{ w: 'w-24' }, { w: 'w-32', opacity: 'opacity-70' }, { w: 'w-20', opacity: 'opacity-50' }].map((item, i) => (
+                  <div key={i} className={`bg-white p-4 rounded-lg ${i === 0 ? 'shadow-md' : 'shadow-sm'} border border-slate-100 flex items-center gap-3 ${item.opacity || ''}`}>
+                    <div className={`w-5 h-5 rounded border-2 ${i === 0 ? 'border-green-500 bg-green-500 flex items-center justify-center' : 'border-slate-300'}`}>
+                      {i === 0 && <Check className="w-3 h-3 text-white" />}
+                    </div>
+                    <div className={`${item.w} h-2 bg-slate-200 rounded-full`}></div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="order-1 md:order-2">
+              <div className="w-10 h-10 rounded-lg bg-pink-50 flex items-center justify-center mb-4">
+                <CalendarHeart className="w-5 h-5 text-pink-600" />
+              </div>
+              <h3 className="text-2xl font-semibold text-slate-900 tracking-tight mb-3">Pre-Pregnancy Planning</h3>
+              <p className="text-slate-500 mb-6 leading-relaxed">Ensuring the body is ready for a healthy pregnancy journey.</p>
+              <ul className="space-y-3">
+                {['Comprehensive risk assessment', 'Intelligent checklists and reminders', 'Report summarisation for doctors'].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-pink-600 shrink-0 mt-0.5" />
+                    <span className="text-sm text-slate-600">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pregnancy */}
+      <section className="py-12">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-4">
+                <Baby className="w-5 h-5 text-emerald-600" />
+              </div>
+              <h3 className="text-2xl font-semibold text-slate-900 tracking-tight mb-3">Pregnancy Care</h3>
+              <p className="text-slate-500 mb-6 leading-relaxed">24/7 support throughout all three trimesters, reducing anxiety and unnecessary visits.</p>
+              <ul className="space-y-3">
+                {['First trimester dietary & lifestyle guidance', 'Second trimester anomaly scan checks', 'Third trimester delivery preparation', 'Medically safe WhatsApp responses'].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                    <span className="text-sm text-slate-600">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200 h-[300px] flex items-center justify-center">
+              <div className="flex gap-4 items-end h-32">
+                <div className="w-16 h-12 bg-emerald-200 rounded-t-lg opacity-40"></div>
+                <div className="w-16 h-20 bg-emerald-300 rounded-t-lg opacity-60"></div>
+                <div className="w-16 h-32 bg-emerald-500 rounded-t-lg shadow-lg relative">
+                  <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-white px-3 py-1 rounded-full shadow-sm text-[10px] font-semibold text-emerald-700 whitespace-nowrap">Week 36</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Delivery */}
+      <section className="py-12 bg-slate-50/50">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="order-2 md:order-1 bg-white rounded-2xl p-8 border border-slate-200 h-[300px] flex items-center justify-center">
+              <div className="w-48 h-32 border-2 border-slate-200 rounded-xl relative flex items-center justify-center">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white px-2">
+                  <Briefcase className="w-6 h-6 text-slate-400" />
+                </div>
+                <div className="space-y-2 w-full px-6">
+                  <div className="h-2 bg-slate-100 rounded-full w-full"></div>
+                  <div className="h-2 bg-slate-100 rounded-full w-2/3"></div>
+                </div>
+              </div>
+            </div>
+            <div className="order-1 md:order-2">
+              <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center mb-4">
+                <Activity className="w-5 h-5 text-blue-600" />
+              </div>
+              <h3 className="text-2xl font-semibold text-slate-900 tracking-tight mb-3">Delivery Readiness</h3>
+              <p className="text-slate-500 mb-6 leading-relaxed">Streamlining the admission process and keeping families informed.</p>
+              <ul className="space-y-3">
+                {['Precise due-date alerts', 'Digital admission checklist', 'Automated family update flow', 'One-page history summary for doctors'].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
+                    <span className="text-sm text-slate-600">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Post Delivery */}
+      <section className="py-12">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="w-10 h-10 rounded-lg bg-orange-50 flex items-center justify-center mb-4">
+                <Smile className="w-5 h-5 text-orange-600" />
+              </div>
+              <h3 className="text-2xl font-semibold text-slate-900 tracking-tight mb-3">Post-Partum & Newborn</h3>
+              <p className="text-slate-500 mb-6 leading-relaxed">Support doesn&apos;t stop at birth. We guide mothers through recovery and newborn care.</p>
+              <ul className="space-y-3">
+                {['Recovery care & symptom checking', 'Mental health check-ins', 'Breastfeeding & nutrition guidance', 'Vaccination reminders'].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
+                    <span className="text-sm text-slate-600">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200 h-[300px] flex items-center justify-center">
+              <div className="relative">
+                <div className="w-32 h-32 rounded-full border-4 border-white bg-orange-100 shadow-sm"></div>
+                <div className="w-20 h-20 rounded-full border-4 border-white bg-orange-200 shadow-md absolute -bottom-2 -right-4 flex items-center justify-center">
+                  <Heart className="w-8 h-8 text-white fill-current" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Clinics Use This Section */}
+      <section className="py-16 bg-slate-900 text-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-semibold tracking-tight mb-6">Why Clinics Use This</h2>
+              <div className="space-y-6">
+                {[
+                  { icon: Layers, title: 'Full Journey Support', desc: 'From the first visit to the last vaccination, the system handles routine queries.' },
+                  { icon: LayoutDashboard, title: 'Doctor Dashboard', desc: 'A centralized view of high-risk patients and summaries, accessible anywhere.' },
+                  { icon: Smartphone, title: 'No Apps Required', desc: 'Patients use WhatsApp. Clinics use a web link. No installation friction.' }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-4">
+                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                      <item.icon className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-medium mb-1">{item.title}</h4>
+                      <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="bg-slate-800 rounded-xl border border-slate-700 p-6 shadow-2xl">
+              <div className="space-y-4">
+                <div className="flex justify-between items-center pb-4 border-b border-slate-700">
+                  <div className="w-24 h-4 bg-slate-600 rounded"></div>
+                  <div className="w-8 h-8 rounded-full bg-slate-600"></div>
+                </div>
+                <div className="grid grid-cols-3 gap-3">
+                  {[1, 2, 3].map(i => (
+                    <div key={i} className="h-20 bg-slate-700/50 rounded-lg border border-slate-700"></div>
+                  ))}
+                </div>
+                <div className="h-32 bg-slate-700/30 rounded-lg border border-slate-700"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing */}
+      <section className="py-16 text-center">
+        <div className="max-w-2xl mx-auto px-6">
+          <h2 className="text-3xl font-semibold text-slate-900 tracking-tight mb-3">Transparent Pricing</h2>
+          <p className="text-slate-500 mb-8">We believe high quality care should be accessible to everyone.</p>
+          
+          <div className="inline-block p-8 rounded-2xl bg-white border border-slate-200 shadow-xl relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-indigo-500"></div>
+            <div className="text-5xl font-bold text-slate-900 mb-2">Free</div>
+            <div className="text-sm font-medium text-slate-500 mb-4">For Doctors & Patients</div>
+            <p className="text-xs text-slate-400 max-w-xs mx-auto">
+              Our revenue model relies solely on ethical, curated partner sponsorships displayed discreetly on the doctor dashboard.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-20 bg-slate-50 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(#e0e7ff_1px,transparent_1px)] [background-size:24px_24px] opacity-30"></div>
+        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 tracking-tight mb-8">Transform your maternity care experience.</h2>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <button className="px-8 py-4 bg-slate-900 text-white rounded-full text-base font-medium hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl">
+              Start your pilot today
+            </button>
+          </div>
+          
+          <div className="mt-12 flex justify-center -space-x-4">
+            {['https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=100&h=100&fit=crop',
+              'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop',
+              'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop'].map((src, i) => (
+              <div key={i} className="w-12 h-12 rounded-full border-4 border-slate-50 bg-gray-300 overflow-hidden">
+                <img src={src} alt="User" className="w-full h-full object-cover" />
+              </div>
+            ))}
+            <div className="w-12 h-12 rounded-full border-4 border-slate-50 bg-slate-200 flex items-center justify-center text-[10px] font-bold text-slate-600">
+              +2k
+            </div>
+          </div>
+          <p className="text-sm text-slate-500 mt-4">Join 2,000+ mothers and doctors</p>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-6 bg-white border-t border-slate-100">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs text-slate-400">
+          <div>© 2024 Obstetrics AI. All rights reserved.</div>
+          <div className="flex gap-6 mt-4 md:mt-0">
+            {['Privacy', 'Terms', 'Contact'].map(link => (
+              <a key={link} href="#" className="hover:text-slate-600">{link}</a>
+            ))}
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}

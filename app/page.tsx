@@ -1203,6 +1203,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { RotatingSpecialtyImages } from '@/components/magic/spec';
 
 // Transparent Navbar
 const Navbar = () => {
@@ -1719,7 +1720,7 @@ const SpecialtySection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="relative py-24 bg-white overflow-hidden" id="specialties">
+    <section ref={ref} className="relative py-10 bg-white overflow-hidden" id="specialties">
       {/* Animated Light Rays Background */}
       <LightRays 
         count={8}
@@ -1746,9 +1747,9 @@ const SpecialtySection = () => {
           <p className="text-md text-gray-600 max-w-3xl mx-auto">
             Starting with specialties that have strong repeat visits and heavy follow-up requirements
           </p>
-          <AnimatedListDemo className="mt-12"/>
+          <AnimatedListDemo/>
         </motion.div>
-        <OrbitingSpecialties/>
+        <RotatingSpecialtyImages/>
       </div>
     </section>
   );
