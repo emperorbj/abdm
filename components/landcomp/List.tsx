@@ -43,19 +43,19 @@ const specialties = [
     link: "/specialties/pediatrics",
   },
   {
-    name: "Pregnancy Care",
+    name: "Women's Health",
     icon: <Baby className="w-4 h-4" />,
     color: "#EC4899",
     hoverBg: "bg-pink-500/20",
     link: "/specialty/obstetrics",
   },
-  {
-    name: "Fertility",
-    icon: <Heart className="w-4 h-4" />,
-    color: "#8B5CF6",
-    hoverBg: "bg-purple-500/20",
-    link: "/specialties/fertility",
-  },
+  // {
+  //   name: "Fertility",
+  //   icon: <Heart className="w-4 h-4" />,
+  //   color: "#8B5CF6",
+  //   hoverBg: "bg-purple-500/20",
+  //   link: "/specialties/fertility",
+  // },
 ]
 
 const SpecialtyBadge = ({ name, icon, color, hoverBg, link }: Item) => {

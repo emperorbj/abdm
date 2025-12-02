@@ -29,7 +29,7 @@ export function Iphone({
   ...props
 }: IphoneProps) {
   const hasVideo = !!videoSrc
-  const hasMedia = hasVideo || !!src
+  const hasMedia = hasVideo || !!src || !!props.children
 
   return (
     <div
@@ -79,6 +79,21 @@ export function Iphone({
             alt=""
             className="block size-full object-cover object-top"
           />
+        </div>
+      )}
+
+      {!hasVideo && props.children && (
+        <div
+          className="absolute z-0 overflow-hidden"
+          style={{
+            left: `${LEFT_PCT}%`,
+            top: `${TOP_PCT}%`,
+            width: `${WIDTH_PCT}%`,
+            height: `${HEIGHT_PCT}%`,
+            borderRadius: `${RADIUS_H}% / ${RADIUS_V}%`,
+          }}
+        >
+          {props.children}
         </div>
       )}
 
