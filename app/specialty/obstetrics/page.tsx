@@ -142,23 +142,23 @@ export default function ObstetricsLanding() {
   }, []);
 
   return (
-    <div className="bg-white text-slate-600 antialiased selection:bg-green-100 selection:text-green-900">
+    <div className="bg-white text-slate-600 antialiased selection:bg-green-100 selection:text-[#01BAA7]">
       {/* Hero Section */}
       <section className="pt-32 pb-12 overflow-hidden bg-gradient-to-b from-white to-slate-50/50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="container mx-auto">
+          <div className="grid lg:grid-cols-2 gap-10 md:pr-[200px] items-center">
             {/* Left Content */}
             <div className="text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-50 border border-green-100 text-green-700 text-xs font-medium mb-8">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-50 border border-green-100 text-[#01BAA7] text-xs font-medium mb-8">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#01BAA7] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#01BAA7]"></span>
                 </span>
                 Now available for pilot clinics
               </div>
 
               <h1 className="text-4xl md:text-6xl font-semibold text-slate-900 tracking-tight leading-[1.1] mb-6">
-                Support the journey of every woman in your clinic with AI on <span className="text-green-600">WhatsApp</span>.
+                Support the journey of every woman in your clinic with AI on <span className="text-[#01BAA7]">WhatsApp</span>.
               </h1>
 
               <p className="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0">
@@ -181,8 +181,8 @@ export default function ObstetricsLanding() {
                   <div className="absolute top-1/2 left-0 w-full h-0.5 bg-slate-100 -z-10"></div>
                   {chatPhases.map((phase, i) => (
                     <div key={i} className="flex flex-col items-center gap-2 bg-white px-2 transition-all duration-500">
-                      <div className={`w-3 h-3 rounded-full border-2 transition-colors duration-500 ${i === chatIndex ? 'bg-green-500 border-green-500 scale-125' : 'bg-white border-slate-300'}`}></div>
-                      <span className={`text-[10px] font-medium uppercase tracking-wider transition-colors duration-500 ${i === chatIndex ? 'text-green-600' : 'text-slate-400'}`}>{phase.phase}</span>
+                      <div className={`w-3 h-3 rounded-full border-2 transition-colors duration-500 ${i === chatIndex ? 'bg-[#01BAA7] border-[#01BAA7] scale-125' : 'bg-white border-slate-300'}`}></div>
+                      <span className={`text-[10px] font-medium uppercase tracking-wider transition-colors duration-500 ${i === chatIndex ? 'text-[#01BAA7]' : 'text-slate-400'}`}>{phase.phase}</span>
                     </div>
                   ))}
                 </div>
@@ -190,11 +190,11 @@ export default function ObstetricsLanding() {
             </div>
 
             {/* Right Content - Rotating Chat */}
-            <div className="relative mx-auto lg:mr-0 w-[320px] h-[640px] bg-slate-900 rounded-[3rem] shadow-2xl border-[8px] border-slate-900 overflow-hidden ring-1 ring-slate-900/10">
+            <div className="bg-gray-300 relative mx-auto lg:mr-0 w-[200px] h-[400px] md:w-[250px] md:h-[500px] rounded-[3rem] shadow-2xl border-[4px] border-slate-900 overflow-hidden ring-1 ring-slate-900/10">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-slate-900 rounded-b-xl z-20"></div>
               <div className="bg-slate-50 w-full h-full flex flex-col pt-12 pb-4 overflow-hidden relative">
                 {/* WhatsApp Header */}
-                <div className="bg-[#075E54] h-16 w-full flex items-center px-4 gap-3 text-white absolute top-0 z-10">
+                <div className="bg-[#01BAA7] h-16 w-full flex items-center px-4 gap-3 text-white absolute top-0 z-10">
                   <ArrowLeft className="w-5 h-5" />
                   <div className="flex items-center gap-2">
                     <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center overflow-hidden">
@@ -244,7 +244,7 @@ export default function ObstetricsLanding() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-10">
             <h2 className="text-2xl font-semibold text-slate-900">
-              We deliver <span className="text-green-600">best-in-class value</span> to our clinics
+              We deliver <span className="text-[#01BAA7]">best-in-class value</span> to our clinics
             </h2>
           </div>
 
@@ -257,7 +257,7 @@ export default function ObstetricsLanding() {
               { value: '30-50%', label: 'Reduction in attrition', icon: TrendingUp }
             ].map((metric, i) => (
               <div key={i} className="flex flex-col items-center text-center p-4 rounded-xl bg-slate-50 border border-slate-100 hover:shadow-md transition-shadow">
-                <div className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center mb-3 text-green-600">
+                <div className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center mb-3 text-[#01BAA7]">
                   <metric.icon className="w-5 h-5" />
                 </div>
                 <div className="text-2xl font-bold text-slate-900 mb-1">{metric.value}</div>
@@ -273,10 +273,10 @@ export default function ObstetricsLanding() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-20">
             <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight mb-6">
-              End-to-end support of the <span className="text-green-600">women&apos;s health journey</span>
+              Why clinics use this for <span className="text-[#01BAA7]">Women&apos;s Health</span>
             </h2>
-            <p className="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
-              Comprehensive care management for every stage of life, powered by intelligent automation.
+            <p className="text-lg text-slate-500 max-w-3xl mx-auto leading-relaxed">
+              By automating <strong className="text-slate-700">100% of history taking</strong> and providing continuous support, we help you save <strong className="text-slate-700">50% consultation time</strong> and drive a <strong className="text-slate-700">2-3x increase in patient volume</strong>. Our full-lifecycle approach ensures <strong className="text-slate-700">95% patient satisfaction</strong> and reduces attrition by <strong className="text-slate-700">30-50%</strong>.
             </p>
           </div>
 
@@ -408,7 +408,7 @@ export default function ObstetricsLanding() {
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-semibold text-slate-900 tracking-tight mb-4">
-            Free for doctors and patients, <span className="text-green-600">powered by partnerships</span>
+            Free for doctors and patients, <span className="text-[#01BAA7]">powered by partnerships</span>
           </h2>
           <p className="text-slate-500 mb-12 max-w-2xl mx-auto">
             We partner with leading healthcare organizations to make premium care management accessible to everyone.
@@ -440,19 +440,19 @@ export default function ObstetricsLanding() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
-              <h3 className="text-xl font-bold mb-4 text-green-400">Why Now?</h3>
+              <h3 className="text-xl font-bold mb-4 text-[#01BAA7]">Why Now?</h3>
               <p className="text-slate-300 leading-relaxed mb-6">
                 Women's health is experiencing a digital revolution. Patients demand continuous support, and clinics need automation to scale.
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-4 text-green-400">Why Us?</h3>
+              <h3 className="text-xl font-bold mb-4 text-[#01BAA7]">Why Us?</h3>
               <p className="text-slate-300 leading-relaxed mb-6">
                 We are the only platform that delivers full-journey AI support directly on WhatsApp, where your patients already are.
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-4 text-green-400">Pilots & Capital</h3>
+              <h3 className="text-xl font-bold mb-4 text-[#01BAA7]">Pilots & Capital</h3>
               <p className="text-slate-300 leading-relaxed mb-6">
                 We are opening pilots for select clinics and raising capital to expand our women's health capabilities.
               </p>

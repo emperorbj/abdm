@@ -129,7 +129,7 @@ const SpecialtySection = () => {
         >
           <h2 className="text-2xl lg:text-3xl font-semibold mb-6">
             Built for specialties with{' '}
-            <span className="text-transparent bg-clip-text bg-green-700">
+            <span className="text-transparent bg-clip-text bg-[#01BAA7]">
               ongoing care needs
             </span>
           </h2>
@@ -152,6 +152,7 @@ const SpecialtySection = () => {
                 />
               ))}
             </div>
+            <p className="text-[#01BAA7] mt-4">... more coming soon</p>
           </div>
 
           {/* Right side - Image */}

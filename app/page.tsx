@@ -66,14 +66,14 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-gray-700 text-sm hover:text-emerald-600 transition-colors">Features</a>
-            <a href="#specialties" className="text-gray-700 text-sm hover:text-emerald-600 transition-colors">Specialties</a>
-            <a href="#about" className="text-gray-700 text-sm hover:text-emerald-600 transition-colors">About</a>
+            <a href="#features" className="text-gray-700 text-sm hover:text-[#01BAA7] transition-colors">Features</a>
+            <a href="#specialties" className="text-gray-700 text-sm hover:text-[#01BAA7] transition-colors">Specialties</a>
+            <a href="#about" className="text-gray-700 text-sm hover:text-[#01BAA7] transition-colors">About</a>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsModalOpen(true)}
-              className="px-6 py-2 border text-sm  border-green-700 text-green-700 rounded-lg font-semibold"
+              className="px-6 py-2 border text-sm  border-[#01BAA7] text-[#01BAA7] rounded-lg font-semibold"
             >
               Get Started
             </motion.button>
@@ -101,7 +101,7 @@ const Navbar = () => {
               <a href="#about" className="px-4 py-2 text-gray-700 hover:bg-emerald-50 rounded-lg transition-colors">About</a>
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="mx-4 px-6 py-2 border border-green-700 text-green-700 rounded-lg font-semibold"
+                className="mx-4 px-6 py-2 border border-[#01BAA7] text-[#01BAA7] rounded-lg font-semibold"
               >
                 Get Started
               </button>
@@ -261,9 +261,9 @@ const HeroSection = () => {
         />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 py-10 sm:py-2 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 py-10 sm:py-2 relative z-10 -mt-2 md:-mt-20">
         {/* Main Content Wrapper - 3 columns on desktop, stacked on mobile */}
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-5">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
 
 
           {/* CENTER: Hero Text Content */}
@@ -271,11 +271,11 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex-1 max-w-xl space-y-6 sm:space-y-3 text-center lg:text-left"
+            className="flex-1  w-full md:w-1/2 space-y-6 sm:space-y-3 text-center lg:text-left"
           >
             <ShimmerButton
               shimmerColor="#FFFFFF"
-              background="green"
+              background="#01BAA7"
               className="mx-auto lg:mx-0"
             >
               <Sparkles className="w-4 h-4" />
@@ -285,7 +285,7 @@ const HeroSection = () => {
 
             <h1 className="text-3xl sm:text-3xl lg:text-4xl font-bold leading-tight">
               AI-powered end-to-end patient journeys
-              <h1 className="text-transparent bg-clip-text bg-green-700">
+              <h1 className="text-transparent bg-clip-text bg-[#01BAA7]">
                 for ambitious Indian doctors
               </h1>
 
@@ -294,14 +294,14 @@ const HeroSection = () => {
             <p className="text-base sm:text-[22px] text-gray-600 leading-relaxed">
               We help doctors in India earn more, retain patients better, and
               stand out from competitors using a simple AI layer on top of existing workflows, plus a
-              clinic dashboard and <span className="text-green-700 text-base sm:text-[22px] leading-relaxed">a virtual clinic dashboard</span>
+              clinic dashboard and <span className="text-[#01BAA7] text-base sm:text-[22px] leading-relaxed">a virtual clinic dashboard</span>
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 text-sm sm:px-8 py-3 sm:py-4 border border-green-700 text-green-700 rounded-xl font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-shadow"
+                className="px-6 text-sm sm:px-8 py-3 sm:py-4 border border-[#01BAA7] text-[#01BAA7] rounded-xl font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-shadow"
               >
                 <PhoneCall className="w-5 h-5" />
                 Talk to the Founders
@@ -311,7 +311,7 @@ const HeroSection = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 text-sm sm:px-8 py-3 sm:py-4 bg-white border-2 border-gray-200 text-gray-700 rounded-xl font-semibold flex items-center justify-center gap-2 hover:border-emerald-300 transition-colors"
+                className="px-6 text-sm sm:px-8 py-3 sm:py-4 bg-white border-2 border-gray-200 text-gray-700 rounded-xl font-semibold flex items-center justify-center gap-2 hover:border-[#01BAA7] hover:text-[#01BAA7] transition-colors"
               >
                 <Play className="w-5 h-5" />
                 View Demo
@@ -346,7 +346,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex-1 flex items-center justify-center lg:justify-end max-w-[300px]"
+            className="flex-1 flex items-center justify-center lg:justify-center lg:w-1/2"
           >
             <motion.div
               animate={{
@@ -360,7 +360,7 @@ const HeroSection = () => {
               className="relative"
             >
               <Iphone
-                className="w-[200px] sm:w-[220px] lg:w-[240px] h-[400px] sm:h-[440px] lg:h-[480px] mx-auto"
+                className="w-[200px] sm:w-[220px] lg:w-[240px] h-[350px] sm:h-[400px] lg:h-[448px] mx-auto"
               >
                 <div className="absolute inset-0 bg-white/90 overflow-hidden pt-12 px-3 pb-4 flex flex-col">
                   {/* Header */}
@@ -371,8 +371,8 @@ const HeroSection = () => {
                       className="w-8 h-8 rounded-full object-cover"
                     />
                     <div>
-                      <div className="text-xs font-bold text-gray-900">{currentChat.doctorName}</div>
-                      <div className="text-[10px] text-green-700 font-medium">{currentChat.specialty}</div>
+                      <div className="text-[11px] sm:text-xs font-bold text-gray-900">{currentChat.doctorName}</div>
+                      <div className="text-[10px] text-[#01BAA7] font-medium">{currentChat.specialty}</div>
                     </div>
                   </div>
 
@@ -391,8 +391,8 @@ const HeroSection = () => {
                         initial={{ opacity: 0, x: msg.type === 'user' ? 20 : -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: idx * 0.8 }}
-                        className={`max-w-[85%] text-xs px-3 py-2 rounded-2xl ${msg.type === 'user'
-                          ? 'bg-green-700 text-white ml-auto rounded-tr-none'
+                        className={`max-w-[85%] text-[10px] sm:text-xs px-2 py-1.5 rounded-2xl ${msg.type === 'user'
+                          ? 'bg-[#01BAA7] text-white ml-auto rounded-tr-none'
                           : 'bg-gray-100 text-gray-800 rounded-tl-none'
                           }`}
                       >
@@ -464,7 +464,7 @@ const JourneySection = () => {
         >
           <h2 className="text-xl sm:text-2xl lg:text-4xl font-bold mb-4 sm:mb-6">
             Complete care journey in{' '}
-            <span className="text-transparent bg-clip-text bg-green-700">
+            <span className="text-transparent bg-clip-text bg-[#01BAA7]">
               three simple phases
             </span>
           </h2>
@@ -480,7 +480,7 @@ const JourneySection = () => {
                 initial={{ width: "0%" }}
                 animate={{ width: "100%" }}
                 transition={{ duration: 5, ease: "linear" }}
-                className="h-full bg-green-700"
+                className="h-full bg-[#01BAA7]"
               />
             </div>
 
@@ -493,7 +493,7 @@ const JourneySection = () => {
                 transition={{ duration: 0.5 }}
                 className="absolute inset-0"
               >
-                <div className="text-4xl font-bold text-green-700 mb-4">0{activePhase + 1}</div>
+                <div className="text-4xl font-bold text-[#01BAA7] mb-4">0{activePhase + 1}</div>
                 <h3 className="text-2xl sm:text-4xl font-bold mb-4 text-gray-900">{phases[activePhase].title}</h3>
                 <p className="text-[21px] text-gray-600 mb-8 leading-relaxed">{phases[activePhase].description}</p>
                 <ul className="space-y-4">
@@ -506,7 +506,7 @@ const JourneySection = () => {
                       className="flex items-center gap-3"
                     >
                       <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
-                        <CheckCircle2 className="w-4 h-4 text-green-700" />
+                        <CheckCircle2 className="w-4 h-4 text-[#01BAA7]" />
                       </div>
                       <span className="text-gray-700 font-medium text-sm sm:text-[21px]">{feature}</span>
                     </motion.li>
@@ -561,7 +561,7 @@ const BusinessModelSection = () => {
         >
           <h2 className="text-xl sm:text-3xl lg:text-4xl font-semibold mb-4 sm:mb-6">
             Free for doctors and patients,{' '}
-            <span className="text-transparent bg-clip-text bg-green-700">
+            <span className="text-transparent bg-clip-text bg-[#01BAA7]">
               powered by partnerships
             </span>
           </h2>
@@ -587,7 +587,7 @@ const BusinessModelSection = () => {
               <img
                 src="/free.avif"
                 alt="Free for users"
-                className="w-full h-full object-cover"
+                className="w-full  rounded-md shadow h-full object-cover"
               />
             </div>
           </motion.div>
@@ -599,14 +599,14 @@ const BusinessModelSection = () => {
             className="overflow-hidden flex flex-col md:flex-row"
           >
             <div className="flex-1 p-8 md:p-0">
-              <div className="w-14 h-14 rounded-xl bg-green-700 flex items-center justify-center mb-6">
+              <div className="w-14 h-14 rounded-xl bg-[#01BAA7] flex items-center justify-center mb-6">
                 <TrendingUp className="w-7 h-7 text-white" />
               </div>
               <h3 className="text-3xl font-bold mb-4 text-gray-900">Revenue Model</h3>
               <p className="text-gray-600 leading-loose text-[21px] mb-4">
                 Revenue comes from pharma and medical device companies through carefully curated ads shown only on the doctor's interface.
               </p>
-              <div className="flex items-center gap-2 text-sm sm:text-[20px] text-green-700 font-medium">
+              <div className="flex items-center gap-2 text-sm sm:text-[20px] text-[#01BAA7] font-medium">
                 <CheckCircle2 className="w-5 h-5" />
                 Patient interface remains 100% ad-free
               </div>
@@ -615,7 +615,7 @@ const BusinessModelSection = () => {
               <img
                 src="/model.avif"
                 alt="Revenue model"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover  rounded-md shadow"
               />
             </div>
           </motion.div>
@@ -669,7 +669,7 @@ const WhyNowSection = () => {
         >
           <h2 className="text-xl sm:text-2xl lg:text-4xl font-bold mb-4 sm:mb-6">
             Why{' '}
-            <span className="text-transparent bg-clip-text bg-green-700">
+            <span className="text-transparent bg-clip-text bg-[#01BAA7]">
               now?
             </span>
           </h2>
@@ -688,7 +688,7 @@ const WhyNowSection = () => {
               className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 hover:shadow-lg transition-shadow"
             >
               <div className="w-12 h-12 rounded-xl  flex items-center justify-center mb-4">
-                <reason.icon className={`w-6 h-6 ${reason.color} `} />
+                <reason.icon className={`w-6 h-6 text-gray-800`} />
               </div>
               <h3 className="text-xl font-bold mb-3 text-gray-900">{reason.title}</h3>
               <p className="text-gray-600">{reason.description}</p>
@@ -716,7 +716,7 @@ const WhyUsSection = () => {
         >
           <h2 className="text-xl sm:text-2xl lg:text-4xl font-bold mb-4 sm:mb-6">
             Why{' '}
-            <span className="text-transparent bg-clip-text bg-green-700">
+            <span className="text-transparent bg-clip-text bg-[#01BAA7]">
               us?
             </span>
           </h2>
@@ -730,21 +730,21 @@ const WhyUsSection = () => {
         >
           <div className="grid sm:grid-cols-3 gap-26 text-center">
             <div>
-              <div className="w-16 h-16 rounded-full bg-teal-400 flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 rounded-full bg-[#01BAA7] flex items-center justify-center mx-auto mb-4">
                 <Target className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold mb-2 text-gray-900">Healthcare Expertise</h3>
               <p className="text-md text-gray-600">Experience building digital and AI solutions in healthcare</p>
             </div>
             <div>
-              <div className="w-16 h-16 rounded-full bg-cyan-400 flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 rounded-full bg-[#01BAA7] flex items-center justify-center mx-auto mb-4">
                 <Users className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold mb-2 text-gray-900">Deep Market Understanding</h3>
               <p className="text-md text-gray-600">Deep understanding of Indian clinic workflows and needs</p>
             </div>
             <div>
-              <div className="w-16 h-16 rounded-full bg-yellow-200 flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 rounded-full bg-[#01BAA7] flex items-center justify-center mx-auto mb-4">
                 <Sparkles className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold mb-2 text-gray-900">Product Excellence</h3>
@@ -879,7 +879,7 @@ const AnimatedMapBackground = () => {
 // CTA Section with Animated Map Background
 const CTASection = () => {
   return (
-    <section id="cta-section" className="py-16 sm:py-24 bg-emerald-400 relative overflow-hidden">
+    <section id="cta-section" className="py-16 sm:py-24 bg-[#01BAA7] relative overflow-hidden">
       <AnimatedMapBackground />
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
