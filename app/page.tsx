@@ -283,7 +283,7 @@ const HeroSection = () => {
             </ShimmerButton>
             {/* <TextAnimate animation="blurInUp" by="character" once> */}
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+            <h1 className="text-3xl sm:text-3xl lg:text-4xl font-bold leading-tight">
               AI-powered end-to-end patient journeys
               <h1 className="text-transparent bg-clip-text bg-green-700">
                 for ambitious Indian doctors
