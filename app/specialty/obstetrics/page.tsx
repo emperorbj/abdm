@@ -389,7 +389,7 @@ export default function ObstetricsLanding() {
                         {/* Floating Elements Animation */}
                         <motion.div
                           animate={{ y: [0, -10, 0] }}
-                          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                          transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
                           className={`absolute -top-4 -right-4 w-16 h-16 rounded-2xl bg-white shadow-lg flex items-center justify-center ${activeStage.color}`}
                         >
                           <Bot className="w-8 h-8" />
