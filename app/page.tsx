@@ -261,7 +261,7 @@ const HeroSection = () => {
         />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 py-10 sm:py-2 relative z-10 -mt-2 md:-mt-20">
+      <div className="container mx-auto px-4 sm:px-6 py-10 sm:py-2 relative z-10 -mt-2 md:-mt-10">
         {/* Main Content Wrapper - 3 columns on desktop, stacked on mobile */}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
 
