@@ -8,7 +8,8 @@ const specialties = [
     icon: <Sparkles className="w-4 h-4" />,
     color: "#10B981",
     hoverBg: "bg-emerald-500/20",
-    link: "/specialty/dermatology",
+    show: false,
+    link: "",
     image: "/dem.png",
   },
   {
@@ -16,7 +17,8 @@ const specialties = [
     icon: <Smile className="w-4 h-4" />,
     color: "#3B82F6",
     hoverBg: "bg-blue-500/20",
-    link: "/specialties/dentistry",
+    show: false,
+    link: "",
     image: "/dent.png",
   },
   {
@@ -24,7 +26,8 @@ const specialties = [
     icon: <Activity className="w-4 h-4" />,
     color: "#F59E0B",
     hoverBg: "bg-amber-500/20",
-    link: "/specialties/diabetology",
+    show: false,
+    link: "",
     image: "/diab.png",
   },
   {
@@ -32,7 +35,8 @@ const specialties = [
     icon: <Baby className="w-4 h-4" />,
     color: "#EF4444",
     hoverBg: "bg-red-500/20",
-    link: "/specialties/pediatrics",
+    show: false,
+    link: "",
     image: "/child.png",
   },
   {
@@ -40,6 +44,7 @@ const specialties = [
     icon: <Baby className="w-4 h-4" />,
     color: "#EC4899",
     hoverBg: "bg-pink-500/20",
+    show: true,
     link: "/specialty/obstetrics",
     image: "/preg.png",
   },
@@ -55,6 +60,8 @@ const specialties = [
 
 const SpecialtyBadge = ({ specialty, isActive, onHover }: any) => {
   const [isHovered, setIsHovered] = useState(false)
+    const isLinkEnabled = specialty.show && specialty.link;
+  const Component = isLinkEnabled ? 'a' : 'div';
 
   const handleMouseEnter = () => {
     setIsHovered(true)
@@ -66,8 +73,8 @@ const SpecialtyBadge = ({ specialty, isActive, onHover }: any) => {
   }
 
   return (
-    <a
-      href={specialty.link}
+    <Component
+      href={`${specialty.show ? specialty.link : ""}`}
       className="inline-block"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -109,7 +116,7 @@ const SpecialtyBadge = ({ specialty, isActive, onHover }: any) => {
           }}
         />
       </div>
-    </a>
+    </Component>
   )
 }
 
@@ -119,7 +126,7 @@ const SpecialtySection = () => {
   const [activeSpecialty, setActiveSpecialty] = useState(specialties[0])
 
   return (
-    <section ref={ref} className="py-16 bg-gradient-to-br from-gray-50 to-white">
+    <section ref={ref} id="specialties" className="py-16 bg-gradient-to-br from-gray-50 to-white md:px-10">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -134,8 +141,8 @@ const SpecialtySection = () => {
             </span>
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Starting with specialties that have strong repeat visits and heavy follow-up requirements
-          </p>
+Starting with specialties requiring long-term relationship building and
+continuous care          </p>
         </motion.div>
 
         <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center">

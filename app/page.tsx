@@ -26,6 +26,8 @@ import {
 import { RotatingSpecialtyImages } from '@/components/magic/spec';
 import { TextAnimate } from '@/components/magic/text-animate';
 import SpecialtySection from '@/components/Specialty';
+import SafetyControl from '@/components/SafetyControl';
+import { SpecialtyBadge } from '@/components/Badge';
 
 // Transparent Navbar
 const Navbar = () => {
@@ -66,9 +68,15 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-gray-700 text-sm hover:text-[#01BAA7] transition-colors">Features</a>
-            <a href="#specialties" className="text-gray-700 text-sm hover:text-[#01BAA7] transition-colors">Specialties</a>
-            <a href="#about" className="text-gray-700 text-sm hover:text-[#01BAA7] transition-colors">About</a>
+            <a 
+            onClick={() => scrollToSection('care-journey')}
+            href="#care-journey" className="text-gray-700 text-sm hover:text-[#01BAA7] transition-colors">Features</a>
+            <a
+            onClick={() => scrollToSection('specialties')} 
+            href="#specialties" className="text-gray-700 text-sm hover:text-[#01BAA7] transition-colors">Specialties</a>
+            <a
+            onClick={() => scrollToSection('about')} 
+            href="#about" className="text-gray-700 text-sm hover:text-[#01BAA7] transition-colors">About</a>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -96,9 +104,15 @@ const Navbar = () => {
             className="md:hidden py-4 bg-white/95 backdrop-blur-md rounded-b-2xl shadow-lg"
           >
             <div className="flex flex-col gap-4">
-              <a href="#features" className="px-4 py-2 text-gray-700 hover:bg-emerald-50 rounded-lg transition-colors">Features</a>
-              <a href="#specialties" className="px-4 py-2 text-gray-700 hover:bg-emerald-50 rounded-lg transition-colors">Specialties</a>
-              <a href="#about" className="px-4 py-2 text-gray-700 hover:bg-emerald-50 rounded-lg transition-colors">About</a>
+              <a 
+              onClick={() => scrollToSection('care-journey')} 
+              href="#care-journey" className="px-4 py-2 text-gray-700 hover:bg-emerald-50 rounded-lg transition-colors">Features</a>
+              <a
+              onClick={() => scrollToSection('specialties')} 
+              href="#specialties" className="px-4 py-2 text-gray-700 hover:bg-emerald-50 rounded-lg transition-colors">Specialties</a>
+              <a
+              onClick={() => scrollToSection('about')} 
+              href="#about" className="px-4 py-2 text-gray-700 hover:bg-emerald-50 rounded-lg transition-colors">About</a>
               <button
                 onClick={() => setIsModalOpen(true)}
                 className="mx-4 px-6 py-2 border border-[#01BAA7] text-[#01BAA7] rounded-lg font-semibold"
@@ -240,7 +254,7 @@ const HeroSection = () => {
   const currentChat = specialtyChats[currentSpecialtyIndex];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-emerald-50 via-white to-cyan-50">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-emerald-50 via-white to-cyan-50 px-10">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -278,12 +292,12 @@ const HeroSection = () => {
               background="#01BAA7"
               className="mx-auto lg:mx-0"
             >
-              <Sparkles className="w-4 h-4" />
-              Empowering Healthcare with AI
+              <Sparkles className="w-4 h-4 mr-2" />
+              Empowering healthcare leaders with AI
             </ShimmerButton>
             {/* <TextAnimate animation="blurInUp" by="character" once> */}
 
-            <h1 className="text-3xl sm:text-3xl lg:text-4xl font-bold leading-tight">
+            <h1 className="text-2xl sm:text-2xl lg:text-3xl font-bold leading-tight">
               AI-powered end-to-end patient journeys
               <h1 className="text-transparent bg-clip-text bg-[#01BAA7]">
                 for ambitious Indian doctors
@@ -291,30 +305,35 @@ const HeroSection = () => {
 
             </h1>
             {/* </TextAnimate> */}
-            <p className="text-base sm:text-[22px] text-gray-600 leading-relaxed">
+            <p className="text-base sm:text-[21px] text-gray-600 leading-relaxed">
               We help doctors in India earn more, retain patients better, and
               stand out from competitors using a simple AI layer on top of existing workflows, plus a
-              clinic dashboard and <span className="text-[#01BAA7] text-base sm:text-[22px] leading-relaxed">a virtual clinic dashboard</span>
+              clinic dashboard and <span className="text-[#01BAA7] text-base sm:text-[21px] leading-relaxed">a virtual clinic dashboard</span>
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 text-sm sm:px-8 py-3 sm:py-4 border border-[#01BAA7] text-[#01BAA7] rounded-xl font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-shadow"
+                className="px-6 text-sm sm:px-8 py-3 sm:py-4 border border-[#01BAA7] 
+                text-[#01BAA7] rounded-xl font-semibold 
+                flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-shadow"
               >
-                <PhoneCall className="w-5 h-5" />
-                Talk to the Founders
                 {/* <ArrowRight className="w-5 h-5" /> */}
+                <Play className="w-5 h-5" />
+                Watch Demo
               </motion.button>
-
+                
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 text-sm sm:px-8 py-3 sm:py-4 bg-white border-2 border-gray-200 text-gray-700 rounded-xl font-semibold flex items-center justify-center gap-2 hover:border-[#01BAA7] hover:text-[#01BAA7] transition-colors"
+                className="px-6 text-sm sm:px-8 py-3 sm:py-4 bg-white border-2 
+                border-gray-200 text-gray-700 rounded-xl font-semibold flex items-center 
+                justify-center gap-2 hover:border-[#01BAA7] hover:text-[#01BAA7] transition-colors"
               >
-                <Play className="w-5 h-5" />
-                View Demo
+               
+                <PhoneCall className="w-5 h-5" />
+                Talk to the Founders
               </motion.button>
             </div>
 
@@ -406,6 +425,11 @@ const HeroSection = () => {
                   </motion.div>
                 </div>
               </Iphone>
+              <SpecialtyBadge
+      specialty={currentChat.specialty}
+      doctorName={currentChat.doctorName}
+      index={currentSpecialtyIndex}
+    />
             </motion.div>
           </motion.div>
 
@@ -427,7 +451,7 @@ const JourneySection = () => {
     {
       title: 'Before Treatment',
       description: 'AI collects patient history through WhatsApp. Doctors receive clean summaries.',
-      features: ['Intake & history', 'Report uploads', 'Pre-consultation prep'],
+      features: ['Automated history taking', 'Case summaries', 'Report uploads'],
       video: '/step1.mp4' // Placeholder
     },
     {
@@ -454,7 +478,7 @@ const JourneySection = () => {
   }, [isInView, phases.length]);
 
   return (
-    <section ref={ref} className="py-12 sm:py-8 bg-gradient-to-br from-emerald-50 via-white to-cyan-50" id="features">
+    <section ref={ref} id="care-journey" className="py-12 sm:py-8 bg-gradient-to-br from-emerald-50 via-white to-cyan-50 md:px-10">
       <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -463,7 +487,7 @@ const JourneySection = () => {
           className="text-center mb-12 sm:mb-16"
         >
           <h2 className="text-xl sm:text-2xl lg:text-4xl font-bold mb-4 sm:mb-6">
-            Complete care journey in{' '}
+            AI features across the end-to-end care journey in{' '}
             <span className="text-transparent bg-clip-text bg-[#01BAA7]">
               three simple phases
             </span>
@@ -524,9 +548,9 @@ const JourneySection = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
               className="w-full relative max-w-sm sm:max-w-md md:max-w-xl  aspect-video rounded-2xl overflow-hidden shadow-xl border-2 border-white"
-              // className="relative aspect-video sm:aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-4 border-white"
+            // className="relative aspect-video sm:aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-4 border-white"
             >
-               <video
+              <video
                 key={phases[activePhase].video}
                 autoPlay
                 loop
@@ -551,7 +575,7 @@ const BusinessModelSection = () => {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <section ref={ref} className="py-16 sm:py-14 bg-white">
+    <section ref={ref} className="py-16 sm:py-14 bg-white md:px-10">
       <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -606,10 +630,10 @@ const BusinessModelSection = () => {
               <p className="text-gray-600 leading-loose text-[21px] mb-4">
                 Revenue comes from pharma and medical device companies through carefully curated ads shown only on the doctor's interface.
               </p>
-              <div className="flex items-center gap-2 text-sm sm:text-[20px] text-[#01BAA7] font-medium">
+              {/* <div className="flex items-center gap-2 text-sm sm:text-[20px] text-[#01BAA7] font-medium">
                 <CheckCircle2 className="w-5 h-5" />
                 Patient interface remains 100% ad-free
-              </div>
+              </div> */}
             </div>
             <div className="w-full md:w-[40%] h-64 md:h-auto min-h-[300px]">
               <img
@@ -659,7 +683,7 @@ const WhyNowSection = () => {
   ];
 
   return (
-    <section ref={ref} className="py-10 sm:py-10 bg-gradient-to-br from-emerald-50 via-white to-cyan-50">
+    <section ref={ref} className="py-10 sm:py-10 bg-gradient-to-br from-emerald-50 via-white to-cyan-50 md:px-10">
       <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -674,8 +698,8 @@ const WhyNowSection = () => {
             </span>
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-            The perfect convergence of technology, behavior, and market need
-          </p>
+The perfect convergence of patient expectations, physician needs, and
+what technology can offer today          </p>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 gap-10 max-w-5xl mx-auto">
@@ -706,7 +730,7 @@ const WhyUsSection = () => {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <section ref={ref} className="py-16 sm:py-10 bg-white" id="about">
+    <section ref={ref} id="about" className="py-16 sm:py-10 bg-white md:px-10">
       <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -901,7 +925,7 @@ const CTASection = () => {
               whileTap={{ scale: 0.95 }}
               className="px-6 sm:px-8 py-3 sm:py-4 bg-white text-gray-900 rounded-xl font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-shadow"
             >
-            <PhoneCall className="w-5 h-5" />
+              <PhoneCall className="w-5 h-5" />
               Request Investor Call
             </motion.button>
             <motion.button
@@ -927,9 +951,10 @@ export default function LandingPage() {
         <HeroSection />
         <JourneySection />
         <BusinessModelSection />
-        <SpecialtySection />
+        <SpecialtySection/>
         <WhyNowSection />
         <WhyUsSection />
+        <SafetyControl />
         <CTASection />
       </div>
     </div>
