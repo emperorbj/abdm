@@ -439,13 +439,13 @@ const HeroSection = () => {
                         initial={{ opacity: 0, x: msg.type === 'user' ? 20 : -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: idx * 0.8 }}
-                        className={`max-w-[85%] text-[8px] sm:text-xs px-2 py-1.5 rounded-2xl ${msg.type === 'user'
+                        className={`max-w-[85%] text-[6px] sm:text-xs px-2 py-1.5 rounded-2xl ${msg.type === 'user'
                           ? 'bg-[#01BAA7] text-white ml-auto rounded-tr-none'
                           : 'bg-gray-100 text-gray-800 rounded-tl-none'
                           }`}
                       >
                         <p>{msg.text}</p>
-                        <span className={`text-[10px] mt-1 block ${msg.type === 'user' ? 'text-emerald-100' : 'text-gray-400'
+                        <span className={`text-[6px] mt-1 block ${msg.type === 'user' ? 'text-emerald-100' : 'text-gray-400'
                           }`}>
                           {msg.time}
                         </span>
