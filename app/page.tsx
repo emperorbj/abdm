@@ -235,7 +235,7 @@ const HeroSection = () => {
       { type: 'user', text: 'Yes, sometimes my lower teeth feel sensitive to cold drinks.', time: '12:02 PM' },
       { type: 'doctor', text: 'That’s good to note. Do you floss regularly?', time: '12:03 PM' },
       { type: 'user', text: 'Not every day, I sometimes forget.', time: '12:05 PM' },
-      { type: 'doctor', text: 'Okay, we can discuss ways to make it easier to remember and maintain healthy oral hygiene.', time: '12:06 PM' },
+      // { type: 'doctor', text: 'Okay, we can discuss ways to make it easier to remember and maintain healthy oral hygiene.', time: '12:06 PM' },
     ]
   },
   {
@@ -246,7 +246,7 @@ const HeroSection = () => {
       { type: 'user', text: 'They fluctuate. I feel tired after meals sometimes.', time: '1:02 PM' },
       { type: 'doctor', text: 'I see. Do you keep a log of what you eat?', time: '1:03 PM' },
       { type: 'user', text: 'I try, but not always.', time: '1:05 PM' },
-      { type: 'doctor', text: 'Noted. Let’s talk about patterns you’ve noticed and how different meals affect your energy.', time: '1:06 PM' },
+      { type: 'doctor', text: 'Noted. Let’s talk about patterns you’ve noticed', time: '1:06 PM' },
     ]
   },
     {
@@ -268,7 +268,7 @@ const HeroSection = () => {
 { type: 'user', text: 'Sent. It itches a lot.', time: '11:17 AM' },
 { type: 'doctor', text: 'Thank you. From the image, it appears consistent with an allergic reaction. Let’s review it together.', time: '11:18 AM' },
 { type: 'user', text: 'I see. What does that mean?', time: '11:20 AM' },
-{ type: 'doctor', text: 'It indicates your skin is reacting to something. We can discuss possible triggers and observations, and monitor how it develops over time.', time: '11:21 AM' },
+{ type: 'doctor', text: 'Will get back to you', time: '11:21 AM' },
 
       
       ]
@@ -444,7 +444,7 @@ const HeroSection = () => {
                           : 'bg-gray-100 text-gray-800 rounded-tl-none'
                           }`}
                       >
-                        <p  className='text-[8px]'>{msg.text}</p>
+                        <p  className='text-[9px]'>{msg.text}</p>
                         <span className={`text-[6px] mt-1 block ${msg.type === 'user' ? 'text-emerald-100' : 'text-gray-400'
                           }`}>
                           {msg.time}
