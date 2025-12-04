@@ -408,7 +408,7 @@ const HeroSection = () => {
               className="relative"
             >
               <Iphone
-                className="w-[200px] sm:w-[220px] lg:w-[240px] h-[350px] sm:h-[400px] lg:h-[448px] mx-auto"
+                className="w-[200px] sm:w-[220px]  h-[350px] sm:h-[400px] mx-auto"
               >
                 <div className="absolute inset-0 bg-white/90 overflow-hidden pt-12 px-3 pb-4 flex flex-col">
                   {/* Header */}

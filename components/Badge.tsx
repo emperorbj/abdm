@@ -29,6 +29,18 @@ const BADGE_STYLES: BadgeMap = {
     textClass: "text-violet-700",
     bgClass: "bg-violet-50/80",
   },
+    Diabetology: {
+    label: "Diabetology",
+    borderClass: "border-orange-400",
+    textClass: "text-orange-700",
+    bgClass: "bg-orange-50/80",
+  },
+    Dentistry: {
+    label: "Dentistry",
+    borderClass: "border-sky-400",
+    textClass: "text-sky-700",
+    bgClass: "bg-sky-50/80",
+  },
   // fallback style
   default: {
     label: "Specialty",
