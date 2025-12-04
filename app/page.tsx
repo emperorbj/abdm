@@ -431,7 +431,7 @@ const HeroSection = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.5 }}
-                    className="flex-1 space-y-3 overflow-hidden"
+                    className="flex-1 space-y-1.5 overflow-hidden"
                   >
                     {currentChat.messages.map((msg, idx) => (
                       <motion.div
@@ -444,7 +444,7 @@ const HeroSection = () => {
                           : 'bg-gray-100 text-gray-800 rounded-tl-none'
                           }`}
                       >
-                        <p>{msg.text}</p>
+                        <p  className='text-[8px]'>{msg.text}</p>
                         <span className={`text-[6px] mt-1 block ${msg.type === 'user' ? 'text-emerald-100' : 'text-gray-400'
                           }`}>
                           {msg.time}
