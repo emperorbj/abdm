@@ -111,7 +111,7 @@ const Navbar = () => {
         )}
       </div>
 
-      {/* <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogContent className="sm:max-w-[500px]">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold text-center mb-2">Get Started with AI Care Coordination</DialogTitle>
@@ -157,8 +157,7 @@ const Navbar = () => {
             >
               Request Investor Call
               <ArrowRight className="w-5 h-5" />
-            </motion.button>
-
+            </motion.button> 
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -172,7 +171,7 @@ const Navbar = () => {
             </motion.button>
           </div>
         </DialogContent>
-      </Dialog> */}
+      </Dialog>
     </nav>
   );
 };

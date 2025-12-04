@@ -1,4 +1,4 @@
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import { motion, useInView, AnimatePresence } from "framer-motion"
 import { CheckCircle2, Baby, Heart, Sparkles, Smile, Activity } from "lucide-react"
 
@@ -10,7 +10,7 @@ const specialties = [
     hoverBg: "bg-emerald-500/20",
     show: false,
     link: "",
-    image: "/dem.png",
+    image: "/dem.avif",
   },
   {
     name: "Dentistry",
@@ -125,8 +125,30 @@ const SpecialtySection = () => {
   const isInView = useInView(ref, { once: true })
   const [activeSpecialty, setActiveSpecialty] = useState(specialties[0])
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  
+  useEffect(() => {
+     const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+   useEffect(() => {
+    if (!isMobile) return;
+    const interval = setInterval(() => {
+      setActiveSpecialty((prev) => {
+        const currentIndex = specialties.findIndex(s => s.name === prev.name);
+        const nextIndex = (currentIndex + 1) % specialties.length;
+        return specialties[nextIndex];
+      });
+    }, 3000); // 3 seconds
+    return () => clearInterval(interval);
+  }, [isMobile]);
+
   return (
-    <section ref={ref} id="specialties" className="py-16 bg-gradient-to-br from-gray-50 to-white md:px-10">
+    <section ref={ref} id="specialties" className="scroll-mt-20 py-16 bg-gradient-to-br from-gray-50 to-white md:px-10">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

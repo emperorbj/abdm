@@ -1,6 +1,6 @@
 'use client'
 import React, { useRef, useEffect, useState } from 'react';
-import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'framer-motion';
 import {
   ArrowRight, MessageSquare, BarChart3, Calendar, Heart,
   Baby, Sparkles, CheckCircle2, Play, User, Stethoscope, PhoneCall,
@@ -28,6 +28,7 @@ import { TextAnimate } from '@/components/magic/text-animate';
 import SpecialtySection from '@/components/Specialty';
 import SafetyControl from '@/components/SafetyControl';
 import { SpecialtyBadge } from '@/components/Badge';
+import { Button } from '@/components/ui/button';
 
 // Transparent Navbar
 const Navbar = () => {
@@ -38,7 +39,15 @@ const Navbar = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+         const navbarHeight = 120; // Adjust based on your navbar height (h-16 = 64px, h-20 = 80px)
+    const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+    const offsetPosition = elementPosition - navbarHeight;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+      // element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
@@ -233,11 +242,13 @@ const HeroSection = () => {
       specialty: 'Dermatology',
       doctorName: 'Dr. Rao',
       messages: [
-        { type: 'doctor', text: 'Send me a photo of the rash.', time: '11:15 AM' },
-        { type: 'user', text: 'Sent. It itches a lot.', time: '11:17 AM' },
-        { type: 'doctor', text: "Looks like an allergic reaction.", time: '11:18 AM' },
-        { type: 'user', text: 'What should I apply?', time: '11:20 AM' },
-        { type: 'doctor', text: 'Prescribing a soothing cream.', time: '11:21 AM' },
+        { type: 'doctor', text: 'Could you share a photo of the rash so I can take a closer look?', time: '11:15 AM' },
+{ type: 'user', text: 'Sent. It itches a lot.', time: '11:17 AM' },
+{ type: 'doctor', text: 'Thank you. From the image, it appears consistent with an allergic reaction. Let’s review it together.', time: '11:18 AM' },
+{ type: 'user', text: 'I see. What does that mean?', time: '11:20 AM' },
+{ type: 'doctor', text: 'It indicates your skin is reacting to something. We can discuss possible triggers and observations, and monitor how it develops over time.', time: '11:21 AM' },
+
+      
       ]
     }
   ];
@@ -293,7 +304,7 @@ const HeroSection = () => {
               className="mx-auto lg:mx-0"
             >
               <Sparkles className="w-4 h-4 mr-2" />
-              Empowering healthcare leaders with AI
+              <p className='text-xs sm:text-xs'>Empowering healthcare leaders with AI</p>
             </ShimmerButton>
             {/* <TextAnimate animation="blurInUp" by="character" once> */}
 
@@ -312,29 +323,25 @@ const HeroSection = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 text-sm sm:px-8 py-3 sm:py-4 border border-[#01BAA7] 
+              <Button
+                className="hover:scale-105 hover:bg-transparent px-3 text-sm sm:px-5 bg-transparent py-2 sm:py-1.5 border border-[#01BAA7] 
                 text-[#01BAA7] rounded-xl font-semibold 
                 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-shadow"
               >
                 {/* <ArrowRight className="w-5 h-5" /> */}
-                <Play className="w-5 h-5" />
+                <Play className="w-3 h-3" />
                 Watch Demo
-              </motion.button>
+              </Button>
                 
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 text-sm sm:px-8 py-3 sm:py-4 bg-white border-2 
+              <Button
+                className="px-6 hover:scale-105 hover:bg-transparent text-sm sm:px-8 py-3 sm:py-4 bg-white border-2 
                 border-gray-200 text-gray-700 rounded-xl font-semibold flex items-center 
                 justify-center gap-2 hover:border-[#01BAA7] hover:text-[#01BAA7] transition-colors"
               >
                
-                <PhoneCall className="w-5 h-5" />
+                <PhoneCall className="w-3 h-3" />
                 Talk to the Founders
-              </motion.button>
+              </Button>
             </div>
 
             {/* Key metrics */}
@@ -478,7 +485,7 @@ const JourneySection = () => {
   }, [isInView, phases.length]);
 
   return (
-    <section ref={ref} id="care-journey" className="py-12 sm:py-8 bg-gradient-to-br from-emerald-50 via-white to-cyan-50 md:px-10">
+    <section ref={ref} id="care-journey" className="scroll-mt-20 py-12 sm:py-8 bg-gradient-to-br from-emerald-50 via-white to-cyan-50 md:px-10">
       <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -508,14 +515,16 @@ const JourneySection = () => {
               />
             </div>
 
-            <div className="relative min-h-[300px]">
+            <div className="relative min-h-[300px] sm:min-h-[400px]">
+            
+
               <motion.div
                 key={activePhase}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
                 transition={{ duration: 0.5 }}
-                className="absolute inset-0"
+                className="absolute "
               >
                 <div className="text-4xl font-bold text-[#01BAA7] mb-4">0{activePhase + 1}</div>
                 <h3 className="text-2xl sm:text-4xl font-bold mb-4 text-gray-900">{phases[activePhase].title}</h3>
@@ -527,7 +536,7 @@ const JourneySection = () => {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.2 + j * 0.1 }}
-                      className="flex items-center gap-3"
+                      className="flex items-center gap-2"
                     >
                       <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
                         <CheckCircle2 className="w-4 h-4 text-[#01BAA7]" />
@@ -537,11 +546,12 @@ const JourneySection = () => {
                   ))}
                 </ul>
               </motion.div>
+            
             </div>
           </div>
 
           {/* Right Column: Image */}
-          <div className="w-full md:w-[40%]">
+          <div className="mt-10 sm:mt-0 w-full md:w-[40%]">
             <motion.div
               key={activePhase}
               initial={{ opacity: 0, scale: 0.95 }}
@@ -683,7 +693,7 @@ const WhyNowSection = () => {
   ];
 
   return (
-    <section ref={ref} className="py-10 sm:py-10 bg-gradient-to-br from-emerald-50 via-white to-cyan-50 md:px-10">
+    <section ref={ref} id="about" className="scroll-mt-20 py-10 sm:py-10 bg-gradient-to-br from-emerald-50 via-white to-cyan-50 md:px-10">
       <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -698,8 +708,9 @@ const WhyNowSection = () => {
             </span>
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-The perfect convergence of patient expectations, physician needs, and
-what technology can offer today          </p>
+            The perfect convergence of patient expectations, physician needs, and 
+what technology can offer today.
+          </p>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 gap-10 max-w-5xl mx-auto">
@@ -730,7 +741,7 @@ const WhyUsSection = () => {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <section ref={ref} id="about" className="py-16 sm:py-10 bg-white md:px-10">
+    <section ref={ref}  className="py-16 sm:py-10 bg-white md:px-10">
       <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
