@@ -227,6 +227,28 @@ const HeroSection = () => {
         { type: 'doctor', text: 'Are you on any medications?', time: '9:36 AM' },
       ]
     },
+      {
+    specialty: 'Dentistry',
+    doctorName: 'Dr. Mehta',
+    messages: [
+      { type: 'doctor', text: 'Hi! I wanted to ask about your recent check-up. Did you notice any sensitivity or discomfort?', time: '12:00 PM' },
+      { type: 'user', text: 'Yes, sometimes my lower teeth feel sensitive to cold drinks.', time: '12:02 PM' },
+      { type: 'doctor', text: 'That’s good to note. Do you floss regularly?', time: '12:03 PM' },
+      { type: 'user', text: 'Not every day, I sometimes forget.', time: '12:05 PM' },
+      { type: 'doctor', text: 'Okay, we can discuss ways to make it easier to remember and maintain healthy oral hygiene.', time: '12:06 PM' },
+    ]
+  },
+  {
+    specialty: 'Diabetology',
+    doctorName: 'Dr. Kapoor',
+    messages: [
+      { type: 'doctor', text: 'Hello! How have your energy levels been recently?', time: '1:00 PM' },
+      { type: 'user', text: 'They fluctuate. I feel tired after meals sometimes.', time: '1:02 PM' },
+      { type: 'doctor', text: 'I see. Do you keep a log of what you eat?', time: '1:03 PM' },
+      { type: 'user', text: 'I try, but not always.', time: '1:05 PM' },
+      { type: 'doctor', text: 'Noted. Let’s talk about patterns you’ve noticed and how different meals affect your energy.', time: '1:06 PM' },
+    ]
+  },
     {
       specialty: 'Pediatrics',
       doctorName: 'Dr. Singh',
@@ -619,7 +641,7 @@ const BusinessModelSection = () => {
             </div>
             <div className="w-full md:w-[40%] h-64 md:h-auto min-h-[300px]">
               <img
-                src="/free.avif"
+                src="/model1.png"
                 alt="Free for users"
                 className="w-full  rounded-md shadow h-full object-cover"
               />

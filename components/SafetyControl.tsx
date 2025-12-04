@@ -49,7 +49,7 @@ const SafetyControl = () => {
                         Safety & <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-500 to-cyan-500">Clinical Control</span>
                     </h2>
                     <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Doctors retain full control over diagnosis and care decisions. Our AI assists with data, summarisation and triage.
+                        Doctors retain full control over diagnosis and care decisions. Our AI assists with data collection, summarisation and triage.
                     </p>
                 </motion.div>
 
